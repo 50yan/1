@@ -1,0 +1,9 @@
+[
+  {
+    "id": "bg_tiananmen",
+    "prompt": "天安门城楼正面全景，红色城墙金色琉璃瓦，蓝天白云，广场开阔，画面庄重肃穆，杂志级摄影写实风格",
+    "width": 1280,
+    "height": 720,
+    "output": "images/bg_tiananmen.png"
+  }
+]

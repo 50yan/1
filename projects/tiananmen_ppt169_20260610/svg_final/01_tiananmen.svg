@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    
+    <radialGradient id="bgWarm" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#FFF5E6" />
+      <stop offset="60%" stop-color="#F5F0E8" />
+      <stop offset="100%" stop-color="#EDE5D5" />
+    </radialGradient>
+
+    
+    <linearGradient id="cityWallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C41E3A" />
+      <stop offset="100%" stop-color="#8B0000" />
+    </linearGradient>
+
+    
+    <radialGradient id="goldGlow" cx="50%" cy="25%" r="45%">
+      <stop offset="0%" stop-color="#D4A017" stop-opacity="0.20" />
+      <stop offset="100%" stop-color="#D4A017" stop-opacity="0" />
+    </radialGradient>
+
+    
+    <linearGradient id="scrimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C41E3A" stop-opacity="0" />
+      <stop offset="55%" stop-color="#C41E3A" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#8B0000" stop-opacity="0.92" />
+    </linearGradient>
+
+    
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.10" />
+    </filter>
+
+    
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.90" />
+    </linearGradient>
+
+    
+    <linearGradient id="goldLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4A017" stop-opacity="0" />
+      <stop offset="20%" stop-color="#D4A017" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#D4A017" stop-opacity="1" />
+      <stop offset="80%" stop-color="#D4A017" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#D4A017" stop-opacity="0" />
+    </linearGradient>
+
+    
+    <linearGradient id="goldVLine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D4A017" />
+      <stop offset="100%" stop-color="#D4A017" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  
+  <rect x="0" y="0" width="1280" height="720" fill="url(#bgWarm)" />
+
+  
+  <rect x="0" y="0" width="1280" height="720" fill="url(#goldGlow)" />
+
+  
+  
+  <rect x="0" y="0" width="1280" height="6" fill="#C41E3A" />
+  <rect x="0" y="6" width="1280" height="3" fill="#D4A017" fill-opacity="0.6" />
+
+  
+  <path d="M140,60 Q640,30 1140,60" fill="none" stroke="#D4A017" stroke-width="2" stroke-opacity="0.5" />
+  <path d="M160,68 Q640,42 1120,68" fill="none" stroke="#D4A017" stroke-width="1.5" stroke-opacity="0.35" />
+
+  
+  <line x1="140" y1="60" x2="140" y2="120" stroke="#D4A017" stroke-width="1.5" stroke-opacity="0.4" />
+  <line x1="1140" y1="60" x2="1140" y2="120" stroke="#D4A017" stroke-width="1.5" stroke-opacity="0.4" />
+
+  
+  <circle cx="140" cy="55" r="5" fill="#C41E3A" />
+  <circle cx="140" cy="55" r="3" fill="#D4A017" />
+  <circle cx="1140" cy="55" r="5" fill="#C41E3A" />
+  <circle cx="1140" cy="55" r="3" fill="#D4A017" />
+
+  
+  
+  <rect x="370" y="240" width="540" height="280" fill="url(#cityWallGrad)" />
+  
+  <path fill="#5C0E1F" d="M525,340 H525 A55,55 0 0 1 580,395 V465 A55,55 0 0 1 525,520 H525 A55,55 0 0 1 470,465 V395 A55,55 0 0 1 525,340 Z" />
+  <path fill="#5C0E1F" d="M640,320 H640 A55,55 0 0 1 695,375 V465 A55,55 0 0 1 640,520 H640 A55,55 0 0 1 585,465 V375 A55,55 0 0 1 640,320 Z" />
+  <path fill="#5C0E1F" d="M755,340 H755 A55,55 0 0 1 810,395 V465 A55,55 0 0 1 755,520 H755 A55,55 0 0 1 700,465 V395 A55,55 0 0 1 755,340 Z" />
+
+  
+  <rect x="468" y="340" width="114" height="3" fill="#D4A017" fill-opacity="0.6" />
+  <rect x="583" y="320" width="114" height="3" fill="#D4A017" fill-opacity="0.6" />
+  <rect x="698" y="340" width="114" height="3" fill="#D4A017" fill-opacity="0.6" />
+
+  
+  <rect x="400" y="130" width="480" height="115" fill="#C41E3A" />
+  
+  <path d="M370,130 L640,85 L910,130 Z" fill="#8B4500" />
+  <path d="M375,130 L640,88 L905,130 Z" fill="#D4A017" fill-opacity="0.85" />
+  
+  <circle cx="640" cy="85" r="6" fill="#D4A017" />
+  <circle cx="640" cy="85" r="3" fill="#FFF5E6" />
+
+  
+  <rect x="420" y="150" width="6" height="95" fill="#8B4500" />
+  <rect x="490" y="150" width="6" height="95" fill="#8B4500" />
+  <rect x="560" y="150" width="6" height="95" fill="#8B4500" />
+  <rect x="630" y="150" width="6" height="95" fill="#8B4500" />
+  <rect x="700" y="150" width="6" height="95" fill="#8B4500" />
+  <rect x="770" y="150" width="6" height="95" fill="#8B4500" />
+  <rect x="840" y="150" width="6" height="95" fill="#8B4500" />
+
+  
+  <path fill="#5C0E1F" d="M448,165 H477 A3,3 0 0 1 480,168 V207 A3,3 0 0 1 477,210 H448 A3,3 0 0 1 445,207 V168 A3,3 0 0 1 448,165 Z" />
+  <path fill="#5C0E1F" d="M518,165 H547 A3,3 0 0 1 550,168 V207 A3,3 0 0 1 547,210 H518 A3,3 0 0 1 515,207 V168 A3,3 0 0 1 518,165 Z" />
+  <path fill="#5C0E1F" d="M588,165 H617 A3,3 0 0 1 620,168 V207 A3,3 0 0 1 617,210 H588 A3,3 0 0 1 585,207 V168 A3,3 0 0 1 588,165 Z" />
+  <path fill="#5C0E1F" d="M658,165 H687 A3,3 0 0 1 690,168 V207 A3,3 0 0 1 687,210 H658 A3,3 0 0 1 655,207 V168 A3,3 0 0 1 658,165 Z" />
+  <path fill="#5C0E1F" d="M728,165 H757 A3,3 0 0 1 760,168 V207 A3,3 0 0 1 757,210 H728 A3,3 0 0 1 725,207 V168 A3,3 0 0 1 728,165 Z" />
+  <path fill="#5C0E1F" d="M798,165 H827 A3,3 0 0 1 830,168 V207 A3,3 0 0 1 827,210 H798 A3,3 0 0 1 795,207 V168 A3,3 0 0 1 798,165 Z" />
+
+  
+  <line x1="640" y1="130" x2="640" y2="55" stroke="#333" stroke-width="2" />
+  <rect x="641" y="55" width="30" height="20" fill="#C41E3A" />
+  <polygon points="646,60 646,70 656,65" fill="#D4A017" fill-opacity="0.9" />
+
+  
+  <g id="decorative-clouds" fill="#D4A017" fill-opacity="0.12">
+    <ellipse cx="200" cy="180" rx="35" ry="12" />
+    <ellipse cx="220" cy="175" rx="25" ry="10" />
+    <ellipse cx="1060" cy="160" rx="30" ry="10" />
+    <ellipse cx="1085" cy="155" rx="25" ry="9" />
+    <ellipse cx="1075" cy="168" rx="20" ry="8" />
+  </g>
+
+  
+  <rect x="0" y="380" width="1280" height="340" fill="url(#scrimGrad)" />
+
+  
+  
+  <rect x="510" y="388" width="260" height="2" fill="url(#goldLine)" />
+
+  
+  <text x="640" y="440" text-anchor="middle" font-family="Georgia, KaiTi, SimSun, serif" font-size="60" font-weight="bold" fill="#FFFFFF">天安门</text>
+
+  
+  <text x="640" y="475" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="20" fill="#D4A017" fill-opacity="0.9">中华人民共和国象征  ·  世界文化遗产</text>
+
+  
+  <rect x="480" y="495" width="320" height="1.5" fill="url(#goldLine)" />
+
+  
+  
+  <g id="card-tiananmen-square" filter="url(#cardShadow)">
+    <path fill="url(#cardBg)" d="M65,520 H415 A10,10 0 0 1 425,530 V685 A10,10 0 0 1 415,695 H65 A10,10 0 0 1 55,685 V530 A10,10 0 0 1 65,520 Z" />
+    
+    <path fill="#C41E3A" d="M57,520 H423 A2,2 0 0 1 425,522 V522 A2,2 0 0 1 423,524 H57 A2,2 0 0 1 55,522 V522 A2,2 0 0 1 57,520 Z" />
+    
+    <circle cx="80" cy="547" r="14" fill="#C41E3A" />
+    <text x="80" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#FFFFFF" font-weight="bold">1</text>
+    
+    <text x="105" y="552" font-family="Georgia, KaiTi, SimSun, serif" font-size="20" fill="#8B0000" font-weight="bold">天安门广场</text>
+    
+    <text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="75" y="578">世界最大的城市广场，面积44万平方米，</text><text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="75" y="600">可容纳百万人集会。人民英雄纪念碑、</text><text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="75" y="622">毛主席纪念堂、国家博物馆、人民大会堂</text><text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="75" y="644">环绕四周，构成庄严宏伟的建筑群。</text></g>
+
+  
+  <g id="card-tiananmen-tower" filter="url(#cardShadow)">
+    <path fill="url(#cardBg)" d="M465,520 H815 A10,10 0 0 1 825,530 V685 A10,10 0 0 1 815,695 H465 A10,10 0 0 1 455,685 V530 A10,10 0 0 1 465,520 Z" />
+    <path fill="#D4A017" d="M457,520 H823 A2,2 0 0 1 825,522 V522 A2,2 0 0 1 823,524 H457 A2,2 0 0 1 455,522 V522 A2,2 0 0 1 457,520 Z" />
+    <circle cx="480" cy="547" r="14" fill="#D4A017" />
+    <text x="480" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#FFFFFF" font-weight="bold">2</text>
+    <text x="505" y="552" font-family="Georgia, KaiTi, SimSun, serif" font-size="20" fill="#8B0000" font-weight="bold">天安门城楼</text>
+    <text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="475" y="578">始建于明永乐十五年（1417年），原名</text><text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="475" y="600">"承天门"。清顺治八年重建改称"天安</text><text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="475" y="622">门"。城楼高34.7米，面阔九间、进深</text><text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="475" y="644">五间，象征"九五至尊"之尊贵地位。</text></g>
+
+  
+  <g id="card-history" filter="url(#cardShadow)">
+    <path fill="url(#cardBg)" d="M865,520 H1215 A10,10 0 0 1 1225,530 V685 A10,10 0 0 1 1215,695 H865 A10,10 0 0 1 855,685 V530 A10,10 0 0 1 865,520 Z" />
+    <path fill="#8B0000" d="M857,520 H1223 A2,2 0 0 1 1225,522 V522 A2,2 0 0 1 1223,524 H857 A2,2 0 0 1 855,522 V522 A2,2 0 0 1 857,520 Z" />
+    <circle cx="880" cy="547" r="14" fill="#8B0000" />
+    <text x="880" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#FFFFFF" font-weight="bold">3</text>
+    <text x="905" y="552" font-family="Georgia, KaiTi, SimSun, serif" font-size="20" fill="#8B0000" font-weight="bold">历史意义</text>
+    <text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="875" y="578">1949年10月1日，毛泽东主席在此宣告</text><text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="875" y="600">中华人民共和国成立。天安门成为新中</text><text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="875" y="622">国诞生的见证者，承载着中华民族的复</text><text font-size="14" fill="#1A1A1A" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" x="875" y="644">兴梦想与深厚的爱国情怀。</text></g>
+
+  
+  <rect x="0" y="714" width="1280" height="3" fill="#D4A017" fill-opacity="0.5" />
+  <rect x="0" y="717" width="1280" height="3" fill="#C41E3A" fill-opacity="0.7" />
+</svg>

@@ -1,0 +1,203 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background warm gradient -->
+    <radialGradient id="bgWarm" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#FFF5E6"/>
+      <stop offset="60%" stop-color="#F5F0E8"/>
+      <stop offset="100%" stop-color="#EDE5D5"/>
+    </radialGradient>
+
+    <!-- 天安门抽象剪影渐变 -->
+    <linearGradient id="cityWallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C41E3A"/>
+      <stop offset="100%" stop-color="#8B0000"/>
+    </linearGradient>
+
+    <!-- 金色光晕 -->
+    <radialGradient id="goldGlow" cx="50%" cy="25%" r="45%">
+      <stop offset="0%" stop-color="#D4A017" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#D4A017" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Bottom scrim -->
+    <linearGradient id="scrimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C41E3A" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#C41E3A" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#8B0000" stop-opacity="0.92"/>
+    </linearGradient>
+
+    <!-- 卡片阴影滤镜 -->
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.10"/>
+    </filter>
+
+    <!-- 卡片背景 -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.90"/>
+    </linearGradient>
+
+    <!-- 金色装饰线 -->
+    <linearGradient id="goldLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4A017" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#D4A017" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#D4A017" stop-opacity="1"/>
+      <stop offset="80%" stop-color="#D4A017" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#D4A017" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- 金色装饰竖线 -->
+    <linearGradient id="goldVLine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D4A017"/>
+      <stop offset="100%" stop-color="#D4A017" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== BACKGROUND ===== -->
+  <rect x="0" y="0" width="1280" height="720" fill="url(#bgWarm)"/>
+
+  <!-- Decorative radial warm glow -->
+  <rect x="0" y="0" width="1280" height="720" fill="url(#goldGlow)"/>
+
+  <!-- ===== DECORATIVE ARCHITECTURAL ELEMENTS ===== -->
+  <!-- 顶部装饰横带 — 天安门金色琉璃瓦意向 -->
+  <rect x="0" y="0" width="1280" height="6" fill="#C41E3A"/>
+  <rect x="0" y="6" width="1280" height="3" fill="#D4A017" fill-opacity="0.6"/>
+
+  <!-- 金色装饰线 — 屋顶弧线 -->
+  <path d="M140,60 Q640,30 1140,60" fill="none" stroke="#D4A017" stroke-width="2" stroke-opacity="0.5"/>
+  <path d="M160,68 Q640,42 1120,68" fill="none" stroke="#D4A017" stroke-width="1.5" stroke-opacity="0.35"/>
+
+  <!-- 瓦片装饰 — 垂脊 -->
+  <line x1="140" y1="60" x2="140" y2="120" stroke="#D4A017" stroke-width="1.5" stroke-opacity="0.4"/>
+  <line x1="1140" y1="60" x2="1140" y2="120" stroke="#D4A017" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <!-- 左脊兽装饰 -->
+  <circle cx="140" cy="55" r="5" fill="#C41E3A"/>
+  <circle cx="140" cy="55" r="3" fill="#D4A017"/>
+  <circle cx="1140" cy="55" r="5" fill="#C41E3A"/>
+  <circle cx="1140" cy="55" r="3" fill="#D4A017"/>
+
+  <!-- ===== 天安门抽象城楼 ===== -->
+  <!-- 城台基座 -->
+  <rect x="370" y="240" width="540" height="280" fill="url(#cityWallGrad)"/>
+  <!-- 城台拱券门 -->
+  <rect x="470" y="340" width="110" height="180" rx="55" ry="55" fill="#5C0E1F"/>
+  <rect x="585" y="320" width="110" height="200" rx="55" ry="55" fill="#5C0E1F"/>
+  <rect x="700" y="340" width="110" height="180" rx="55" ry="55" fill="#5C0E1F"/>
+
+  <!-- 城门金色装饰线 -->
+  <rect x="468" y="340" width="114" height="3" fill="#D4A017" fill-opacity="0.6"/>
+  <rect x="583" y="320" width="114" height="3" fill="#D4A017" fill-opacity="0.6"/>
+  <rect x="698" y="340" width="114" height="3" fill="#D4A017" fill-opacity="0.6"/>
+
+  <!-- 城楼（二楼） -->
+  <rect x="400" y="130" width="480" height="115" fill="#C41E3A"/>
+  <!-- 城楼金色琉璃瓦顶 -->
+  <path d="M370,130 L640,85 L910,130 Z" fill="#8B4500"/>
+  <path d="M375,130 L640,88 L905,130 Z" fill="#D4A017" fill-opacity="0.85"/>
+  <!-- 屋脊装饰 -->
+  <circle cx="640" cy="85" r="6" fill="#D4A017"/>
+  <circle cx="640" cy="85" r="3" fill="#FFF5E6"/>
+
+  <!-- 城楼柱子 -->
+  <rect x="420" y="150" width="6" height="95" fill="#8B4500"/>
+  <rect x="490" y="150" width="6" height="95" fill="#8B4500"/>
+  <rect x="560" y="150" width="6" height="95" fill="#8B4500"/>
+  <rect x="630" y="150" width="6" height="95" fill="#8B4500"/>
+  <rect x="700" y="150" width="6" height="95" fill="#8B4500"/>
+  <rect x="770" y="150" width="6" height="95" fill="#8B4500"/>
+  <rect x="840" y="150" width="6" height="95" fill="#8B4500"/>
+
+  <!-- 城楼窗户 -->
+  <rect x="445" y="165" width="35" height="45" rx="3" fill="#5C0E1F"/>
+  <rect x="515" y="165" width="35" height="45" rx="3" fill="#5C0E1F"/>
+  <rect x="585" y="165" width="35" height="45" rx="3" fill="#5C0E1F"/>
+  <rect x="655" y="165" width="35" height="45" rx="3" fill="#5C0E1F"/>
+  <rect x="725" y="165" width="35" height="45" rx="3" fill="#5C0E1F"/>
+  <rect x="795" y="165" width="35" height="45" rx="3" fill="#5C0E1F"/>
+
+  <!-- 国旗 -->
+  <line x1="640" y1="130" x2="640" y2="55" stroke="#333" stroke-width="2"/>
+  <rect x="641" y="55" width="30" height="20" fill="#C41E3A"/>
+  <polygon points="646,60 646,70 656,65" fill="#D4A017" fill-opacity="0.9"/>
+
+  <!-- ===== 装饰性祥云 ===== -->
+  <g id="decorative-clouds" fill="#D4A017" fill-opacity="0.12">
+    <ellipse cx="200" cy="180" rx="35" ry="12"/>
+    <ellipse cx="220" cy="175" rx="25" ry="10"/>
+    <ellipse cx="1060" cy="160" rx="30" ry="10"/>
+    <ellipse cx="1085" cy="155" rx="25" ry="9"/>
+    <ellipse cx="1075" cy="168" rx="20" ry="8"/>
+  </g>
+
+  <!-- ===== BOTTOM SCRIM ===== -->
+  <rect x="0" y="380" width="1280" height="340" fill="url(#scrimGrad)"/>
+
+  <!-- ===== 标题区域 ===== -->
+  <!-- 金色装饰横线 -->
+  <rect x="510" y="388" width="260" height="2" fill="url(#goldLine)"/>
+
+  <!-- 主标题：天安门 -->
+  <text x="640" y="440" text-anchor="middle" font-family="Georgia, KaiTi, SimSun, serif" font-size="60" font-weight="bold" fill="#FFFFFF">天安门</text>
+
+  <!-- 副标题 -->
+  <text x="640" y="475" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="20" fill="#D4A017" fill-opacity="0.9">中华人民共和国象征  ·  世界文化遗产</text>
+
+  <!-- 金色装饰横线 -->
+  <rect x="480" y="495" width="320" height="1.5" fill="url(#goldLine)"/>
+
+  <!-- ===== THREE CONTENT CARDS ===== -->
+  <!-- 卡片1：天安门广场 -->
+  <g id="card-tiananmen-square" filter="url(#cardShadow)">
+    <rect x="55" y="520" width="370" height="175" rx="10" fill="url(#cardBg)"/>
+    <!-- 顶部红色标识条 -->
+    <rect x="55" y="520" width="370" height="4" rx="2" fill="#C41E3A"/>
+    <!-- 图标圆点 -->
+    <circle cx="80" cy="547" r="14" fill="#C41E3A"/>
+    <text x="80" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#FFFFFF" font-weight="bold">1</text>
+    <!-- 标题 -->
+    <text x="105" y="552" font-family="Georgia, KaiTi, SimSun, serif" font-size="20" fill="#8B0000" font-weight="bold">天安门广场</text>
+    <!-- 内容 -->
+    <text x="75" y="578" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#1A1A1A">
+      <tspan x="75" dy="0">世界最大的城市广场，面积44万平方米，</tspan>
+      <tspan x="75" dy="22">可容纳百万人集会。人民英雄纪念碑、</tspan>
+      <tspan x="75" dy="22">毛主席纪念堂、国家博物馆、人民大会堂</tspan>
+      <tspan x="75" dy="22">环绕四周，构成庄严宏伟的建筑群。</tspan>
+    </text>
+  </g>
+
+  <!-- 卡片2：天安门城楼 -->
+  <g id="card-tiananmen-tower" filter="url(#cardShadow)">
+    <rect x="455" y="520" width="370" height="175" rx="10" fill="url(#cardBg)"/>
+    <rect x="455" y="520" width="370" height="4" rx="2" fill="#D4A017"/>
+    <circle cx="480" cy="547" r="14" fill="#D4A017"/>
+    <text x="480" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#FFFFFF" font-weight="bold">2</text>
+    <text x="505" y="552" font-family="Georgia, KaiTi, SimSun, serif" font-size="20" fill="#8B0000" font-weight="bold">天安门城楼</text>
+    <text x="475" y="578" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#1A1A1A">
+      <tspan x="475" dy="0">始建于明永乐十五年（1417年），原名</tspan>
+      <tspan x="475" dy="22">"承天门"。清顺治八年重建改称"天安</tspan>
+      <tspan x="475" dy="22">门"。城楼高34.7米，面阔九间、进深</tspan>
+      <tspan x="475" dy="22">五间，象征"九五至尊"之尊贵地位。</tspan>
+    </text>
+  </g>
+
+  <!-- 卡片3：历史意义 -->
+  <g id="card-history" filter="url(#cardShadow)">
+    <rect x="855" y="520" width="370" height="175" rx="10" fill="url(#cardBg)"/>
+    <rect x="855" y="520" width="370" height="4" rx="2" fill="#8B0000"/>
+    <circle cx="880" cy="547" r="14" fill="#8B0000"/>
+    <text x="880" y="552" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#FFFFFF" font-weight="bold">3</text>
+    <text x="905" y="552" font-family="Georgia, KaiTi, SimSun, serif" font-size="20" fill="#8B0000" font-weight="bold">历史意义</text>
+    <text x="875" y="578" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#1A1A1A">
+      <tspan x="875" dy="0">1949年10月1日，毛泽东主席在此宣告</tspan>
+      <tspan x="875" dy="22">中华人民共和国成立。天安门成为新中</tspan>
+      <tspan x="875" dy="22">国诞生的见证者，承载着中华民族的复</tspan>
+      <tspan x="875" dy="22">兴梦想与深厚的爱国情怀。</tspan>
+    </text>
+  </g>
+
+  <!-- ===== 底部装饰线 ===== -->
+  <rect x="0" y="714" width="1280" height="3" fill="#D4A017" fill-opacity="0.5"/>
+  <rect x="0" y="717" width="1280" height="3" fill="#C41E3A" fill-opacity="0.7"/>
+</svg>
