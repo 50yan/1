@@ -25,9 +25,11 @@ Git 仓库提供源码、launch、地图、world、机器人描述、模型定�
 
 ## 恢复到 ROS 虚拟机
 
-从 Release 下载 `ros1-project-full.tar.gz` 和 `SHA256SUMS` 到同一目录，然后在 Linux 执行：
+从 Release 下载所有 `ros1-project-full.tar.gz.part001` 至 `part011` 分卷及 `SHA256SUMS` 到同一目录，然后在 Linux 执行：
 
 ```bash
+sha256sum --ignore-missing -c SHA256SUMS
+cat ros1-project-full.tar.gz.part[0-9][0-9][0-9] > ros1-project-full.tar.gz
 sha256sum --ignore-missing -c SHA256SUMS
 mkdir -p ~/ros1_project_restore
 tar -xzf ros1-project-full.tar.gz -C ~/ros1_project_restore
