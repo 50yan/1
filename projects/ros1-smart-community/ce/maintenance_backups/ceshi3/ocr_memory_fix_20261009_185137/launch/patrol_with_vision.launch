@@ -1,0 +1,8 @@
+<launch>
+  <arg name="image_topic" default="/camera/image_raw" />
+  <node pkg="ceshi3" type="patrol_with_vision.py" name="ceshi3_patrol_with_vision" output="screen" required="true">
+    <param name="image_topic" value="$(arg image_topic)" />
+    <param name="ocr_min_score" value="0.50" />
+    <rosparam param="plate_aliases">{"苏W·GT88V": "苏·GT88V"}</rosparam>
+  </node>
+</launch>

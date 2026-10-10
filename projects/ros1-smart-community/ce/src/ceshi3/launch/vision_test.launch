@@ -1,0 +1,18 @@
+<launch>
+  <arg name="model" default="/home/ros1/ce/src/vision_data/vision_models/person_type_xz4_ros.onnx" />
+  <arg name="image_topic" default="/camera/image_raw" />
+  <arg name="confidence" default="0.35" />
+  <arg name="save_images" default="true" />
+
+  <node pkg="ceshi3"
+        type="yolo_onnx_ros_test.py"
+        name="yolo_onnx_ros_test"
+        output="screen">
+    <param name="model" value="$(arg model)" />
+    <param name="image_topic" value="$(arg image_topic)" />
+    <param name="confidence" value="$(arg confidence)" />
+    <param name="save_images" value="$(arg save_images)" />
+    <param name="save_interval" value="10" />
+    <param name="save_dir" value="/home/ros1/ce/src/vision_data/results/yolo_test" />
+  </node>
+</launch>

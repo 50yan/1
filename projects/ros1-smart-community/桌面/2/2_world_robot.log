@@ -1,0 +1,30 @@
+xacro: in-order processing became default in ROS Melodic. You can drop the option.
+[0m[INFO] [1790433125.036692926]: Finished loading Gazebo ROS API Plugin.[0m
+[0m[INFO] [1790433125.039939726]: waitForService: Service [/gazebo_gui/set_physics_properties] has not been advertised, waiting...[0m
+Couldn't find a preferred IP via the getifaddrs() call; I'm assuming that your IP address is 127.0.0.1.  This should work for local processes, but will almost certainly not work if you have remote processes.Report to the disc-zmq development team to seek a fix.
+Couldn't find a preferred IP via the getifaddrs() call; I'm assuming that your IP address is 127.0.0.1.  This should work for local processes, but will almost certainly not work if you have remote processes.Report to the disc-zmq development team to seek a fix.
+Couldn't find a preferred IP via the getifaddrs() call; I'm assuming that your IP address is 127.0.0.1.  This should work for local processes, but will almost certainly not work if you have remote processes.Report to the disc-zmq development team to seek a fix.
+Couldn't find a preferred IP via the getifaddrs() call; I'm assuming that your IP address is 127.0.0.1.  This should work for local processes, but will almost certainly not work if you have remote processes.Report to the disc-zmq development team to seek a fix.
+[0m[INFO] [1790433124.856344441]: Finished loading Gazebo ROS API Plugin.[0m
+[0m[INFO] [1790433124.867524403]: waitForService: Service [/gazebo/set_physics_properties] has not been advertised, waiting...[0m
+Couldn't find a preferred IP via the getifaddrs() call; I'm assuming that your IP address is 127.0.0.1.  This should work for local processes, but will almost certainly not work if you have remote processes.Report to the disc-zmq development team to seek a fix.
+Couldn't find a preferred IP via the getifaddrs() call; I'm assuming that your IP address is 127.0.0.1.  This should work for local processes, but will almost certainly not work if you have remote processes.Report to the disc-zmq development team to seek a fix.
+Couldn't find a preferred IP via the getifaddrs() call; I'm assuming that your IP address is 127.0.0.1.  This should work for local processes, but will almost certainly not work if you have remote processes.Report to the disc-zmq development team to seek a fix.
+Couldn't find a preferred IP via the getifaddrs() call; I'm assuming that your IP address is 127.0.0.1.  This should work for local processes, but will almost certainly not work if you have remote processes.Report to the disc-zmq development team to seek a fix.
+
+libcurl: (6) Could not resolve host: fuel.gazebosim.org
+
+libcurl: (6) Could not resolve host: fuel.ignitionrobotics.org
+[INFO] [1790433124.596112, 0.000000]: Loading model XML from ros parameter robot_description
+[INFO] [1790433124.608513, 0.000000]: Waiting for service /gazebo/spawn_urdf_model
+[INFO] [1790433126.129111, 212.774000]: Calling service /gazebo/spawn_urdf_model
+[INFO] [1790433126.746012, 212.829000]: Spawn status: SpawnModel: Successfully spawned entity
+context mismatch in svga_surface_destroy
+context mismatch in svga_surface_destroy
+context mismatch in svga_surface_destroy
+context mismatch in svga_surface_destroy
+[33m[WARN] [1790434704.623317630, 804.097000000]: Shutdown request received.[0m
+[33m[WARN] [1790434704.628561866, 804.098000000]: Reason given for shutdown: [[/robot_state_publisher] Reason: new node registered with same name][0m
+[33m[WARN] [1790434707.863487183, 805.463000000]: Shutdown request received.[0m
+[33m[WARN] [1790434707.864219696, 805.463000000]: Reason given for shutdown: [[/gazebo_gui] Reason: new node registered with same name][0m
+[31m[ERROR] [1790434708.392723094, 805.465000000]: Tried to advertise a service that is already advertised in this node [/imu_service][0m

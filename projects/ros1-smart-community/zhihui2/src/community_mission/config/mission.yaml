@@ -1,0 +1,3 @@
+route_file: $(find community_navigation)/waypoints/patrol_route.yaml
+red_light_timeout: 60.0
+arrival_timeout: 90.0

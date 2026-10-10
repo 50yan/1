@@ -1,0 +1,412 @@
+{
+  "run_directory": "/home/ros1/ce/src/vision_data/shibie/20261010_131315",
+  "completed_points": 8,
+  "community_observations_total": 14,
+  "noncommunity_observations_total": 2,
+  "license_plate_detections_total": 1,
+  "unique_plate_count": 1,
+  "unique_plates": [
+    "鲁R·5B7D2"
+  ],
+  "note": "人员总数与车牌框累计数为各点检测相加；车牌号按字符去重，忽略中点。text 仅规范大小写、空格和分隔符；raw_text 保留 OCR 原文，不应用号码替换。",
+  "points": [
+    {
+      "point": "point_1",
+      "task": "traffic_light",
+      "time": "2026-10-10 13:13:19",
+      "camera_stamp": 3226.963,
+      "image_sha256": "6390d2297789a9aca3aefd5b4ba24bf329906bf19e83236c4e3fdd4bf23bfdfa",
+      "same_pixels_as_previous_point": false,
+      "detections_count": 1,
+      "class_counts": {
+        "traffic_light": 1
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class": "traffic_light",
+          "confidence": 0.9753,
+          "xyxy": [
+            231.3048095703125,
+            68.93124389648438,
+            713.2976684570312,
+            185.87802124023438
+          ]
+        }
+      ],
+      "plate_results": [],
+      "traffic_light_success": false,
+      "ocr_status": "not_applicable",
+      "ocr_error": "",
+      "image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_1_20261010_131318_436380.jpg",
+      "raw_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/raw/point_1_20261010_131318_436380.jpg",
+      "annotated_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_1_20261010_131318_436380.jpg",
+      "status": "manual_check_failed"
+    },
+    {
+      "point": "point_2",
+      "task": "person",
+      "time": "2026-10-10 13:14:38",
+      "camera_stamp": 3273.093,
+      "image_sha256": "151978c139a123ee070c9786630cd87b94852367760cae3aaa965d0b9f7248e9",
+      "same_pixels_as_previous_point": false,
+      "detections_count": 3,
+      "class_counts": {
+        "community": 2,
+        "noncommunity": 1
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9381,
+          "xyxy": [
+            956.0585632324219,
+            293.4880676269531,
+            1019.1672668457031,
+            528.1203308105469
+          ]
+        },
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9033,
+          "xyxy": [
+            880.5058288574219,
+            294.2918701171875,
+            944.9045715332031,
+            530.9608154296875
+          ]
+        },
+        {
+          "class_id": 1,
+          "class": "noncommunity",
+          "confidence": 0.862,
+          "xyxy": [
+            795.3630065917969,
+            294.338623046875,
+            861.0740051269531,
+            530.30908203125
+          ]
+        }
+      ],
+      "plate_results": [],
+      "traffic_light_success": null,
+      "ocr_status": "not_applicable",
+      "ocr_error": "",
+      "image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_2_20261010_131436_314769.jpg",
+      "raw_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/raw/point_2_20261010_131436_314769.jpg",
+      "annotated_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_2_20261010_131436_314769.jpg",
+      "status": "ok"
+    },
+    {
+      "point": "point_3",
+      "task": "person",
+      "time": "2026-10-10 13:15:03",
+      "camera_stamp": 3289.198,
+      "image_sha256": "de30c2f35381a345b3140714abe7818133bee6c7080d07599fc626c02d81bdaf",
+      "same_pixels_as_previous_point": false,
+      "detections_count": 3,
+      "class_counts": {
+        "community": 3,
+        "noncommunity": 0
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9584,
+          "xyxy": [
+            542.3073120117188,
+            290.9906005859375,
+            607.7643432617188,
+            536.4017333984375
+          ]
+        },
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.929,
+          "xyxy": [
+            465.87611389160156,
+            290.4014587402344,
+            533.6951751708984,
+            538.2877502441406
+          ]
+        },
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9162,
+          "xyxy": [
+            621.4906921386719,
+            295.6614990234375,
+            687.1604309082031,
+            536.9102783203125
+          ]
+        }
+      ],
+      "plate_results": [],
+      "traffic_light_success": null,
+      "ocr_status": "not_applicable",
+      "ocr_error": "",
+      "image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_3_20261010_131503_049094.jpg",
+      "raw_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/raw/point_3_20261010_131503_049094.jpg",
+      "annotated_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_3_20261010_131503_049094.jpg",
+      "status": "ok"
+    },
+    {
+      "point": "point_4",
+      "task": "person",
+      "time": "2026-10-10 13:16:37",
+      "camera_stamp": 3346.872,
+      "image_sha256": "3ab679edcf29799e2eb871462c55b4e0f3f6fee89232322d08909a52ccf51623",
+      "same_pixels_as_previous_point": false,
+      "detections_count": 3,
+      "class_counts": {
+        "community": 2,
+        "noncommunity": 1
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9404,
+          "xyxy": [
+            388.2635498046875,
+            294.4933166503906,
+            451.2352294921875,
+            527.5096130371094
+          ]
+        },
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9197,
+          "xyxy": [
+            460.8009796142578,
+            294.7264709472656,
+            525.6122283935547,
+            527.2710876464844
+          ]
+        },
+        {
+          "class_id": 1,
+          "class": "noncommunity",
+          "confidence": 0.891,
+          "xyxy": [
+            542.1028442382812,
+            294.0971984863281,
+            604.9091186523438,
+            525.2287292480469
+          ]
+        }
+      ],
+      "plate_results": [],
+      "traffic_light_success": null,
+      "ocr_status": "not_applicable",
+      "ocr_error": "",
+      "image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_4_20261010_131635_653012.jpg",
+      "raw_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/raw/point_4_20261010_131635_653012.jpg",
+      "annotated_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_4_20261010_131635_653012.jpg",
+      "status": "ok"
+    },
+    {
+      "point": "point_5",
+      "task": "person",
+      "time": "2026-10-10 13:16:46",
+      "camera_stamp": 3352.668,
+      "image_sha256": "17ee5192e84ffbb1fdb31ba1bc831b590bf485e827a45f642100f64e4effd412",
+      "same_pixels_as_previous_point": false,
+      "detections_count": 4,
+      "class_counts": {
+        "community": 4,
+        "noncommunity": 0
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9756,
+          "xyxy": [
+            171.26637268066406,
+            281.1507568359375,
+            246.6621856689453,
+            563.5126953125
+          ]
+        },
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9622,
+          "xyxy": [
+            350.35362243652344,
+            281.4012145996094,
+            423.47682189941406,
+            564.8719787597656
+          ]
+        },
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9467,
+          "xyxy": [
+            263.14915466308594,
+            281.8943786621094,
+            338.14466857910156,
+            564.4315490722656
+          ]
+        },
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9446,
+          "xyxy": [
+            434.3572235107422,
+            280.4739990234375,
+            510.8250274658203,
+            563.4453125
+          ]
+        }
+      ],
+      "plate_results": [],
+      "traffic_light_success": null,
+      "ocr_status": "not_applicable",
+      "ocr_error": "",
+      "image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_5_20261010_131645_882672.jpg",
+      "raw_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/raw/point_5_20261010_131645_882672.jpg",
+      "annotated_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_5_20261010_131645_882672.jpg",
+      "status": "ok"
+    },
+    {
+      "point": "point_6",
+      "task": "person",
+      "time": "2026-10-10 13:17:09",
+      "camera_stamp": 3366.329,
+      "image_sha256": "ed15e48682adaf1b185d45d984cf611cbadff3821d981e109de219dffa7c235e",
+      "same_pixels_as_previous_point": false,
+      "detections_count": 3,
+      "class_counts": {
+        "community": 3,
+        "noncommunity": 0
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9167,
+          "xyxy": [
+            423.06471252441406,
+            289.4090270996094,
+            489.48545837402344,
+            539.6004943847656
+          ]
+        },
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9151,
+          "xyxy": [
+            576.8955383300781,
+            289.8792724609375,
+            644.2377624511719,
+            537.9425048828125
+          ]
+        },
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.8104,
+          "xyxy": [
+            498.2669677734375,
+            290.53759765625,
+            563.835205078125,
+            538.7662353515625
+          ]
+        }
+      ],
+      "plate_results": [],
+      "traffic_light_success": null,
+      "ocr_status": "not_applicable",
+      "ocr_error": "",
+      "image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_6_20261010_131709_158128.jpg",
+      "raw_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/raw/point_6_20261010_131709_158128.jpg",
+      "annotated_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_6_20261010_131709_158128.jpg",
+      "status": "ok"
+    },
+    {
+      "point": "point_7",
+      "task": "traffic_light",
+      "time": "2026-10-10 13:17:23",
+      "camera_stamp": 3373.884,
+      "image_sha256": "1e08c2b8d9efe94a33f814e0c5dca2c077a8104f7248e097b0df39b06ca9e6bf",
+      "same_pixels_as_previous_point": false,
+      "detections_count": 1,
+      "class_counts": {
+        "traffic_light": 1
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class": "traffic_light",
+          "confidence": 0.9675,
+          "xyxy": [
+            240.57177734375,
+            4.808349609375,
+            846.3167724609375,
+            156.83282470703125
+          ]
+        }
+      ],
+      "plate_results": [],
+      "traffic_light_success": false,
+      "ocr_status": "not_applicable",
+      "ocr_error": "",
+      "image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_7_20261010_131722_123767.jpg",
+      "raw_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/raw/point_7_20261010_131722_123767.jpg",
+      "annotated_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_7_20261010_131722_123767.jpg",
+      "status": "manual_check_failed"
+    },
+    {
+      "point": "point_8",
+      "task": "plate",
+      "time": "2026-10-10 13:19:48",
+      "camera_stamp": 3435.375,
+      "image_sha256": "48bf01ee42242bc8d0504e99bef4deeee39142a9371059e9269b864a97fd9aca",
+      "same_pixels_as_previous_point": false,
+      "detections_count": 1,
+      "class_counts": {
+        "license_plate": 1
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class": "license_plate",
+          "confidence": 0.9695,
+          "xyxy": [
+            395.79127502441406,
+            291.8089294433594,
+            650.9293060302734,
+            370.8326721191406
+          ]
+        }
+      ],
+      "plate_results": [
+        {
+          "text": "鲁R·5B7D2",
+          "raw_text": "鲁R·5B7D2",
+          "score": 0.9977,
+          "detection_index": 0,
+          "correction_applied": false
+        }
+      ],
+      "traffic_light_success": null,
+      "ocr_status": "ok",
+      "ocr_error": "",
+      "image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_8_20261010_131909_556013.jpg",
+      "raw_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/raw/point_8_20261010_131909_556013.jpg",
+      "annotated_image": "/home/ros1/ce/src/vision_data/shibie/20261010_131315/images/point_8_20261010_131909_556013.jpg",
+      "status": "ok"
+    }
+  ]
+}

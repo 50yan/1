@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(community_perception)
+find_package(catkin REQUIRED COMPONENTS community_interfaces cv_bridge gazebo_msgs rosgraph_msgs rospy sensor_msgs std_msgs)
+catkin_package()
+catkin_install_python(PROGRAMS scripts/traffic_light_node.py scripts/mannequin_detector_node.py scripts/license_plate_node.py scripts/visual_overlay_node.py scripts/navigation_status_window.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(DIRECTORY config launch models test_images DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

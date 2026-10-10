@@ -1,0 +1,5 @@
+camera_topic: /camera/image_raw
+annotated_topic: /perception/annotated_image
+result_topic: /perception/result
+traffic_light_topic: /perception/traffic_light_state
+min_contour_area: 250

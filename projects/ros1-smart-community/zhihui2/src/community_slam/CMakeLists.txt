@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(community_slam)
+find_package(catkin REQUIRED COMPONENTS community_gazebo amcl gmapping map_server rospy rviz)
+catkin_package()
+install(DIRECTORY config launch maps rviz scripts DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION} USE_SOURCE_PERMISSIONS)

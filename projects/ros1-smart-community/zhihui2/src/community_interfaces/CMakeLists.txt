@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(community_interfaces)
+find_package(catkin REQUIRED COMPONENTS message_generation std_msgs)
+add_message_files(FILES PerceptionResult.msg MissionStatus.msg)
+add_service_files(FILES StartMission.srv StopMission.srv)
+generate_messages(DEPENDENCIES std_msgs)
+catkin_package(CATKIN_DEPENDS message_runtime std_msgs)

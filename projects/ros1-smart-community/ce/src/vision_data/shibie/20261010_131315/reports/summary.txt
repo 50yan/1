@@ -1,0 +1,8 @@
+已完成巡检点：8/11
+去重车牌号数量：1
+1. 鲁R·5B7D2
+车牌检测框累计：1
+人员检测累计：community 14；noncommunity 2
+point_1：TL人工确认失败
+point_7：TL人工确认失败
+point_8：鲁R·5B7D2

@@ -1,0 +1,11 @@
+已完成巡检点：9/9
+去重车牌号数量：3
+1. 苏W·GT88V
+2. 鲁R·5B7D2
+3. 鲁R·K3M9Q
+车牌检测框累计：3
+人员检测累计：community 14；noncommunity 2
+point_6：鲁R·5B7D2
+point_7：苏W·GT88V
+point_8：鲁R·K3M9Q
+point_9：未识别到车牌文字

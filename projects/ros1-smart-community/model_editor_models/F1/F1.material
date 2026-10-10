@@ -1,0 +1,20 @@
+// FF1.png 的材质定义
+material F1
+{
+    technique
+    {
+        pass
+        {
+            ambient 1 1 1 1
+            diffuse 1 1 1 1
+            specular 0 0 0 1
+            lighting off
+            texture_unit
+            {
+                texture F1.png
+                filtering anisotropic
+                max_anisotropy 8
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(community_navigation)
+find_package(catkin REQUIRED COMPONENTS actionlib community_slam geometry_msgs move_base move_base_msgs rospy rviz)
+catkin_package()
+catkin_install_python(PROGRAMS scripts/waypoint_navigator.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(DIRECTORY config launch rviz waypoints DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

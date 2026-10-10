@@ -1,0 +1,5 @@
+已完成巡检点：2/11
+去重车牌号数量：0
+车牌检测框累计：0
+人员检测累计：community 2；noncommunity 1
+point_1：信号灯=green，状态=green_passed，裁剪图=/home/ros1/ce/src/vision_data/shibie/20261010_154011/traffic_light_crops/point_1_20261010_154045_953139_crop.jpg

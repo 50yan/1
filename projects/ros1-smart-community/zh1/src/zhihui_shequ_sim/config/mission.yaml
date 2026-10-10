@@ -1,0 +1,129 @@
+output_dir: "~/.ros/zhihui_shequ/captures"
+cmd_vel_topic: "/cmd_vel"
+camera_topic: "/camera/image_raw"
+model_name: "smart_car"
+use_model_state_motion: true
+settle_time: 0.5
+startup_camera_wait: 0.5
+capture_camera_wait: 0.5
+
+steps:
+  - name: start_delay
+    action: wait
+    duration: 1.0
+
+  - name: A1
+    action: drive
+    linear: 0.45
+    angular: 0.0
+    duration: 18.0
+
+  - name: L1
+    action: turn
+    linear: 0.0
+    angular: 0.72
+    duration: 2.18
+
+  - name: A2
+    action: drive
+    linear: 0.40
+    angular: 00
+    duration: 8.7
+
+  - name: L2
+    action: turn
+    linear: 0.0
+    angular: 0.72
+    duration: 2.18
+
+  - name: A3
+    action: drive
+    linear: 0.45
+    angular: 0.0
+    duration: 6.5
+
+  - name: L3
+    action: turn
+    linear: 0.0
+    angular: -0.72
+    duration: 2.18
+
+  - name: A4
+    action: drive
+    linear: 0.35
+    angular: 0.0
+    duration: 12
+
+  - name: L4
+    action: turn
+    linear: 0.0
+    angular: 0.72
+    duration: 2.18
+
+  - name: plate_area
+    action: capture
+    label: plate
+
+  - name: A5
+    action: drive
+    linear: 0.25
+    angular: 0.0
+    duration: 9
+    
+  - name: L5
+    action: turn
+    linear: 0.0
+    angular: 0.72
+    duration: 2.18
+    
+  - name: A6
+    action: drive
+    linear: 0.25
+    angular: 0.0
+    duration: 6
+
+  - name: R6
+    action: turn
+    linear: 0.0
+    angular: -0.72
+    duration: 2.18
+ 
+  - name: A7
+    action: drive
+    linear: 0.25
+    angular: 0.0
+    duration: 8.5
+
+  - name: B8
+    action: drive
+    linear: -0.25
+    angular: 0.0
+    duration: 8.0
+
+  - name: L7
+    action: turn
+    linear: 0.0
+    angular: 0.72
+    duration: 2.18
+
+  - name: A9
+    action: drive
+    linear: 0.25
+    angular: 0.0
+    duration: 25.5
+ 
+  - name: R8
+    action: turn
+    linear: 0.0
+    angular: -0.72
+    duration: 2.18 
+    
+  - name: A10
+    action: drive
+    linear: 0.25
+    angular: 0.0
+    duration: 8
+        
+  - name: finish
+    action: wait
+    duration: 1.0

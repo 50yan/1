@@ -1,0 +1,142 @@
+{
+  "run_directory": "/home/ros1/ce/src/vision_data/shibie/20261010_154011",
+  "completed_points": 2,
+  "community_observations_total": 2,
+  "noncommunity_observations_total": 1,
+  "license_plate_detections_total": 0,
+  "unique_plate_count": 0,
+  "unique_plates": [],
+  "note": "人员总数与车牌框累计数为各点检测相加；车牌号按字符去重，忽略中点。text 仅规范大小写、空格和分隔符；raw_text 保留 OCR 原文，不应用号码替换。",
+  "points": [
+    {
+      "point": "point_1",
+      "task": "traffic_light",
+      "time": "2026-10-10 15:40:47",
+      "camera_stamp": 4803.278,
+      "image_sha256": "0955b8c1eb99f337d23f5e654866572ff9fc069743f718cb392325170188ecd8",
+      "same_pixels_as_previous_point": false,
+      "detections_count": 1,
+      "class_counts": {
+        "traffic_light": 1
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class": "traffic_light",
+          "confidence": 0.9836,
+          "xyxy": [
+            355.6986999511719,
+            69.26849365234375,
+            819.3857727050781,
+            186.1396484375
+          ]
+        }
+      ],
+      "plate_results": [],
+      "ocr_status": "not_applicable",
+      "ocr_error": "",
+      "image": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/images/point_1_20261010_154045_953139.jpg",
+      "raw_image": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/raw/point_1_20261010_154045_953139.jpg",
+      "annotated_image": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/images/point_1_20261010_154045_953139.jpg",
+      "status": "green_passed",
+      "traffic_light_roi": [
+        270,
+        66,
+        750,
+        190
+      ],
+      "traffic_light_crop": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/traffic_light_crops/point_1_20261010_154045_953139_crop.jpg",
+      "traffic_light_state": "green",
+      "traffic_light_scores": {
+        "red": 0.00017,
+        "yellow": 0.00242,
+        "green": 0.05117
+      },
+      "traffic_light_history": [
+        {
+          "state": "yellow",
+          "camera_stamp": 4803.278,
+          "wait_seconds": 0.01,
+          "image": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/traffic_light_crops/point_1_yellow_20261010_154047_873123.jpg"
+        },
+        {
+          "state": "red",
+          "camera_stamp": 4804.533,
+          "wait_seconds": 0.81,
+          "image": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/traffic_light_crops/point_1_red_20261010_154048_668668.jpg"
+        },
+        {
+          "state": "green",
+          "camera_stamp": 4819.642,
+          "wait_seconds": 22.96,
+          "image": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/traffic_light_crops/point_1_green_20261010_154110_816665.jpg"
+        },
+        {
+          "state": "green",
+          "camera_stamp": 4820.111,
+          "wait_seconds": 23.43,
+          "image": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/traffic_light_crops/point_1_green_20261010_154111_287965.jpg"
+        }
+      ],
+      "traffic_light_camera_stamp": 4820.111,
+      "traffic_light_wait_seconds": 23.43,
+      "traffic_light_latest_crop": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/traffic_light_crops/point_1_green_20261010_154111_287965.jpg",
+      "traffic_light_pass_time": "2026-10-10 15:41:11"
+    },
+    {
+      "point": "point_2",
+      "task": "person",
+      "time": "2026-10-10 15:41:31",
+      "camera_stamp": 4831.547,
+      "image_sha256": "77bd264e46d347b8d84e4ede7a7a7b3a8a9dd1b1751b1d340069b163d2460cd8",
+      "same_pixels_as_previous_point": false,
+      "detections_count": 3,
+      "class_counts": {
+        "community": 2,
+        "noncommunity": 1
+      },
+      "detections": [
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.952,
+          "xyxy": [
+            859.6639709472656,
+            289.0245361328125,
+            926.2105407714844,
+            536.541748046875
+          ]
+        },
+        {
+          "class_id": 0,
+          "class": "community",
+          "confidence": 0.9358,
+          "xyxy": [
+            780.3697204589844,
+            288.9944152832031,
+            847.9178771972656,
+            539.3791198730469
+          ]
+        },
+        {
+          "class_id": 1,
+          "class": "noncommunity",
+          "confidence": 0.8593,
+          "xyxy": [
+            689.3594665527344,
+            288.6430969238281,
+            760.5738830566406,
+            545.4328308105469
+          ]
+        }
+      ],
+      "plate_results": [],
+      "ocr_status": "not_applicable",
+      "ocr_error": "",
+      "image": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/images/point_2_20261010_154129_525121.jpg",
+      "raw_image": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/raw/point_2_20261010_154129_525121.jpg",
+      "annotated_image": "/home/ros1/ce/src/vision_data/shibie/20261010_154011/images/point_2_20261010_154129_525121.jpg",
+      "status": "ok"
+    }
+  ]
+}

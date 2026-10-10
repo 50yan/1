@@ -1,0 +1,58 @@
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="false"/>
+  <arg name="run_mission" default="true"/>
+  <arg name="show_camera_window" default="true"/>
+  <arg name="world" default="$(find zhihui_shequ_sim)/worlds/smart_community.world"/>
+  <arg name="mission_config" default="$(find zhihui_shequ_sim)/config/mission.yaml"/>
+
+  <param name="/use_sim_time" value="true"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="$(arg paused)"/>
+  </include>
+
+  <param name="robot_description" command="$(find xacro)/xacro '$(find zhihui_shequ_sim)/urdf/smart_car.xacro'"/>
+
+  <node name="robot_state_publisher"
+        pkg="robot_state_publisher"
+        type="robot_state_publisher"
+        output="screen">
+    <param name="publish_frequency" value="30.0"/>
+  </node>
+
+  <node name="reset_spawn_smart_car"
+        pkg="zhihui_shequ_sim"
+        type="reset_spawn_model.py"
+        output="screen">
+    <param name="model_name" value="smart_car"/>
+    <param name="robot_description_param" value="/robot_description"/>
+    <param name="x" value="4.15"/>
+    <param name="y" value="3.65"/>
+    <param name="z" value="0.30"/>
+    <param name="yaw" value="3.14159"/>
+  </node>
+
+  <node if="$(arg run_mission)"
+        name="mission_controller"
+        pkg="zhihui_shequ_sim"
+        type="mission_controller.py"
+        output="screen">
+    <param name="mission_config" value="$(arg mission_config)"/>
+  </node>
+
+  <node if="$(arg show_camera_window)"
+        name="navigation_status_window"
+        pkg="zhihui_shequ_sim"
+        type="navigation_status_window.py"
+        output="screen">
+    <param name="model_name" value="smart_car"/>
+    <param name="camera_topic" value="/camera/image_raw"/>
+    <param name="window_name" value="Camera Navigation"/>
+    <param name="width" value="760"/>
+    <param name="height" value="620"/>
+    <param name="rate" value="10.0"/>
+  </node>
+</launch>

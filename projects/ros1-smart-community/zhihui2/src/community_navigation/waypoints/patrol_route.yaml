@@ -1,0 +1,5 @@
+waypoints:
+  - {name: traffic_light_1, x: 2.3, y: 1.5, yaw: 0.0, task: traffic_light}
+  - {name: mannequin_zone, x: 5.8, y: 3.2, yaw: 1.57, task: mannequin_detection}
+  - {name: license_plate_zone, x: 4.05, y: -2.2, yaw: -1.57, task: license_plate}
+  - {name: park, x: 3.6, y: -3.1, yaw: 0.0, task: park}

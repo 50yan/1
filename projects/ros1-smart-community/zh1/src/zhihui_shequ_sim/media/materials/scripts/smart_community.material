@@ -1,0 +1,14 @@
+material ZhihuiShequ/Map
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture smart_community_map.png
+        scale 1 1
+      }
+    }
+  }
+}

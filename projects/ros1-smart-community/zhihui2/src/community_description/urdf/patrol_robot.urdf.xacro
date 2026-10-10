@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<robot name="patrol_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find community_description)/urdf/base.urdf.xacro"/>
+  <xacro:include filename="$(find community_description)/urdf/sensors.urdf.xacro"/>
+  <xacro:patrol_base/>
+  <xacro:patrol_sensors/>
+</robot>

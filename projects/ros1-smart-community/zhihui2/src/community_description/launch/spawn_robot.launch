@@ -1,0 +1,6 @@
+<launch>
+  <arg name="x" default="4.15"/><arg name="y" default="3.65"/><arg name="z" default="0.30"/><arg name="yaw" default="3.14159"/>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find community_description)/urdf/patrol_robot.urdf.xacro'"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen"><param name="publish_frequency" value="30"/></node>
+  <node name="spawn_patrol_robot" pkg="community_description" type="reset_spawn_model.py" output="screen"><param name="model_name" value="patrol_robot"/><param name="robot_description_param" value="/robot_description"/><param name="x" value="$(arg x)"/><param name="y" value="$(arg y)"/><param name="z" value="$(arg z)"/><param name="yaw" value="$(arg yaw)"/></node>
+</launch>

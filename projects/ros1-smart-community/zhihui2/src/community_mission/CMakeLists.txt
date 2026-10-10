@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(community_mission)
+find_package(catkin REQUIRED COMPONENTS actionlib community_interfaces geometry_msgs move_base_msgs rospy std_msgs)
+catkin_package()
+catkin_install_python(PROGRAMS scripts/mission_manager.py scripts/result_reporter.py scripts/legacy_capture_controller.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(DIRECTORY config launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

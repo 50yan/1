@@ -1,0 +1,1 @@
+<launch><node pkg="community_mission" type="mission_manager.py" name="mission_manager" output="screen"/><node pkg="community_mission" type="result_reporter.py" name="result_reporter" output="screen"/></launch>

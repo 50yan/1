@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(community_description)
+find_package(catkin REQUIRED COMPONENTS gazebo_msgs gazebo_ros geometry_msgs robot_state_publisher rospy xacro)
+catkin_package()
+catkin_install_python(PROGRAMS scripts/reset_spawn_model.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(DIRECTORY config launch meshes urdf DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="smart_community">
+    <plugin name="ros_api" filename="libgazebo_ros_api_plugin.so"/>
+
+    <gravity>0 0 -9.8</gravity>
+    <scene>
+      <ambient>0.45 0.45 0.45 1</ambient>
+      <background>0.72 0.74 0.76 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose>0 -8 7 1.05 0 0</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.85 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.4 0.2 -0.9</direction>
+    </light>
+
+    <model name="map_floor">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>10 10 0.04</size></box></geometry></collision>
+        <visual name="black_map"><pose>0 0 0.025 0 0 0</pose><geometry><box><size>10 10 0.03</size></box></geometry><material><ambient>0 0 0 1</ambient><diffuse>0 0 0 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="map_white_lines">
+      <static>true</static>
+      <link name="lines">
+        <!-- A1 outer_bottom | 0-10坐标 中心线坐标: (0,0) 到 (10,0) | 0-10占地: 左下(0,-0.03) 到 右上(10,0.03) | Gazebo中心: (0,-4.55,0.0405), Gazebo尺寸: 9.1 x 0.06 x 0.001 -->
+        <visual name="A1_outer_bottom">
+          <pose>0 -4.55 0.0405 0 0 0</pose>
+          <geometry><box><size>9.1 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- A2 outer_left | 0-10坐标 中心线坐标: (0,0) 到 (0,10) | 0-10占地: 左下(-0.03,0) 到 右上(0.03,10) | Gazebo中心: (-4.55,0,0.0405), Gazebo尺寸: 0.06 x 9.1 x 0.001 -->
+        <visual name="A2_outer_left">
+          <pose>-4.55 0 0.045 0 0 0</pose>
+          <geometry><box><size>0.06 9.1 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- A3 outer_top | 0-10坐标 中心线坐标: (0,10) 到 (10,10) | 0-10占地: 左下(0,9.97) 到 右上(10,10.03) | Gazebo中心: (0,4.55,0.0405), Gazebo尺寸: 9.1 x 0.06 x 0.001 -->
+        <visual name="A3_outer_top">
+          <pose>0 4.55 0.0405 0 0 0</pose>
+          <geometry><box><size>9.1 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- A4 outer_right | 0-10坐标 中心线坐标: (10,0) 到 (10,10) | 0-10占地: 左下(9.97,0) 到 右上(10.03,10) | Gazebo中心: (4.55,0,0.0405), Gazebo尺寸: 0.06 x 9.1 x 0.001 -->
+        <visual name="A4_outer_right">
+          <pose>4.55 0 0.0405 0 0 0</pose>
+          <geometry><box><size>0.06 9.1 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- B1 parking_top | 0-10坐标 中心线坐标: (8,8.5) 到 (10,8.5) | 0-10占地: 左下(8,8.47) 到 右上(10,8.53) | Gazebo中心: (3.64,3.185,0.0405), Gazebo尺寸: 1.82 x 0.06 x 0.001 -->
+        <visual name="B1_parking_top">
+          <pose>3.64 3.185 0.0405 0 0 0</pose>
+          <geometry><box><size>1.82 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- B2 parking_mid | 0-10坐标 中心线坐标: (8,4.5) 到 (10,4.5) | 0-10占地: 左下(8,4.47) 到 右上(10,4.53) | Gazebo中心: (3.64,-0.455,0.0405), Gazebo尺寸: 1.82 x 0.06 x 0.001 -->
+        <visual name="B2_parking_mid">
+          <pose>3.64 -0.455 0.0405 0 0 0</pose>
+          <geometry><box><size>1.82 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- B3 parking_lower_mid | 0-10坐标 中心线坐标: (8,3) 到 (10,3) | 0-10占地: 左下(8,2.97) 到 右上(10,3.03) | Gazebo中心: (3.64,-1.82,0.0405), Gazebo尺寸: 1.82 x 0.06 x 0.001 -->
+        <visual name="B3_parking_lower_mid">
+          <pose>3.64 -1.82 0.0405 0 0 0</pose>
+          <geometry><box><size>1.82 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- B4 parking_bottom | 0-10坐标 中心线坐标: (8,1.5) 到 (10,1.5) | 0-10占地: 左下(8,1.47) 到 右上(10,1.53) | Gazebo中心: (3.64,-3.185,0.0405), Gazebo尺寸: 1.82 x 0.06 x 0.001 -->
+        <visual name="B4_parking_bottom">
+          <pose>3.64 -3.185 0.0405 0 0 0</pose>
+          <geometry><box><size>1.82 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- B5 right_lane_left | 0-10坐标 中心线坐标: (8,0) 到 (8,10) | 0-10占地: 左下(7.97,0) 到 右上(8.03,10) | Gazebo中心: (2.73,0,0.0405), Gazebo尺寸: 0.06 x 9.1 x 0.001 -->
+        <visual name="B5_right_lane_left">
+          <pose>2.73 0 0.0405 0 0 0</pose>
+          <geometry><box><size>0.06 9.1 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- C1 lower_box_top | 0-10坐标 中心线坐标: (1.5,4.5) 到 (3.5,4.5) | 0-10占地: 左下(1.5,4.47) 到 右上(3.5,4.53) | Gazebo中心: (-2.275,-0.455,0.0405), Gazebo尺寸: 1.82 x 0.06 x 0.001 -->
+        <visual name="C1_lower_box_top">
+          <pose>-2.275 -0.455 0.0405 0 0 0</pose>
+          <geometry><box><size>1.82 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- C2 lower_box_left | 0-10坐标 中心线坐标: (1.5,1.5) 到 (1.5,4.5) | 0-10占地: 左下(1.47,1.5) 到 右上(1.53,4.5) | Gazebo中心: (-3.185,-1.82,0.0405), Gazebo尺寸: 0.06 x 2.73 x 0.001 -->
+        <visual name="C2_lower_box_left">
+          <pose>-3.185 -1.82 0.0405 0 0 0</pose>
+          <geometry><box><size>0.06 2.73 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- C3 lower_box_mid | 0-10坐标 中心线坐标: (1.5,3) 到 (3.5,3) | 0-10占地: 左下(1.5,2.97) 到 右上(3.5,3.03) | Gazebo中心: (-2.275,-1.82,0.0405), Gazebo尺寸: 1.82 x 0.06 x 0.001 -->
+        <visual name="C3_lower_box_mid">
+          <pose>-2.275 -1.82 0.0405 0 0 0</pose>
+          <geometry><box><size>1.82 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- C4 lower_box_bottom | 0-10坐标 中心线坐标: (1.5,1.5) 到 (3.5,1.5) | 0-10占地: 左下(1.5,1.47) 到 右上(3.5,1.53) | Gazebo中心: (-2.275,-3.185,0.0405), Gazebo尺寸: 1.82 x 0.06 x 0.001 -->
+        <visual name="C4_lower_box_bottom">
+          <pose>-2.275 -3.185 0.0405 0 0 0</pose>
+          <geometry><box><size>1.82 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- C5 lower_box_right | 0-10坐标 中心线坐标: (3.5,1.5) 到 (3.5,4.5) | 0-10占地: 左下(3.47,1.5) 到 右上(3.53,4.5) | Gazebo中心: (-1.365,-1.82,0.0405), Gazebo尺寸: 0.06 x 2.73 x 0.001 -->
+        <visual name="C5_lower_box_right">
+          <pose>-1.365 -1.82 0.0405 0 0 0</pose>
+          <geometry><box><size>0.06 2.73 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- D1 gate_h | 0-10坐标 中心线坐标: (3.5,3) 到 (4.5,3) | 0-10占地: 左下(3.5,2.97) 到 右上(4.5,3.03) | Gazebo中心: (-0.91,-1.82,0.0405), Gazebo尺寸: 0.91 x 0.06 x 0.001 -->
+        <visual name="D1_gate_h">
+          <pose>-0.91 -1.82 0.0405 0 0 0</pose>
+          <geometry><box><size>0.91 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- D2 top_gate_v | 0-10坐标 中心线坐标: (4.5,8.5) 到 (4.5,10) | 0-10占地: 左下(4.47,8.5) 到 右上(4.53,10) | Gazebo中心: (-0.455,3.868,0.0405), Gazebo尺寸: 0.06 x 1.365 x 0.001 -->
+        <visual name="D2_top_gate_v">
+          <pose>-0.455 3.868 0.0405 0 0 0</pose>
+          <geometry><box><size>0.06 1.365 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- E1 upper_box_bottom | 0-10坐标 中心线坐标: (1.5,6.5) 到 (4.5,6.5) | 0-10占地: 左下(1.5,6.47) 到 右上(4.5,6.53) | Gazebo中心: (-1.82,1.365,0.0405), Gazebo尺寸: 2.73 x 0.06 x 0.001 -->
+        <visual name="E1_upper_box_bottom">
+          <pose>-1.82 1.365 0.0405 0 0 0</pose>
+          <geometry><box><size>2.73 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- E2 upper_box_left | 0-10坐标 中心线坐标: (1.5,6.5) 到 (1.5,8.5) | 0-10占地: 左下(1.47,6.5) 到 右上(1.53,8.5) | Gazebo中心: (-3.185,2.275,0.0405), Gazebo尺寸: 0.06 x 1.82 x 0.001 -->
+        <visual name="E2_upper_box_left">
+          <pose>-3.185 2.275 0.0405 0 0 0</pose>
+          <geometry><box><size>0.06 1.82 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- E3 upper_box_top | 0-10坐标 中心线坐标: (1.5,8.5) 到 (6,8.5) | 0-10占地: 左下(1.5,8.47) 到 右上(6,8.53) | Gazebo中心: (-1.138,3.185,0.0405), Gazebo尺寸: 4.095 x 0.06 x 0.001 -->
+        <visual name="E3_upper_box_top">
+          <pose>-1.138 3.185 0.0405 0 0 0</pose>
+          <geometry><box><size>4.095 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- E4 center_block_left | 0-10坐标 中心线坐标: (4.5,1.5) 到 (4.5,6.5) | 0-10占地: 左下(4.47,1.5) 到 右上(4.53,6.5) | Gazebo中心: (-0.455,-0.91,0.0405), Gazebo尺寸: 0.06 x 4.55 x 0.001 -->
+        <visual name="E4_center_block_left">
+          <pose>-0.455 -0.91 0.0405 0 0 0</pose>
+          <geometry><box><size>0.06 4.55 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- E5 center_block_right | 0-10坐标 中心线坐标: (6,1.5) 到 (6,8.5) | 0-10占地: 左下(5.97,1.5) 到 右上(6.03,8.5) | Gazebo中心: (0.91,0,0.0405), Gazebo尺寸: 0.06 x 6.37 x 0.001 -->
+        <visual name="E5_center_block_right">
+          <pose>0.91 0 0.0405 0 0 0</pose>
+          <geometry><box><size>0.06 6.37 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <!-- E6 center_block_bottom | 0-10坐标 中心线坐标: (4.5,1.5) 到 (6,1.5) | 0-10占地: 左下(4.5,1.47) 到 右上(6,1.53) | Gazebo中心: (0.228,-3.185,0.0405), Gazebo尺寸: 1.365 x 0.06 x 0.001 -->
+        <visual name="E6_center_block_bottom">
+          <pose>0.228 -3.185 0.0405 0 0 0</pose>
+          <geometry><box><size>1.365 0.06 0.001</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="outer_walls">
+      <static>true</static>
+      <link name="walls">
+        <collision name="north_collision"><pose>0 5.05 0.28 0 0 0</pose><geometry><box><size>10.4 0.12 0.55</size></box></geometry></collision>
+        <collision name="south_collision"><pose>0 -5.05 0.28 0 0 0</pose><geometry><box><size>10.4 0.12 0.55</size></box></geometry></collision>
+        <collision name="east_collision"><pose>5.05 0 0.28 0 0 0</pose><geometry><box><size>0.12 10.4 0.55</size></box></geometry></collision>
+        <collision name="west_collision"><pose>-5.05 0 0.28 0 0 0</pose><geometry><box><size>0.12 10.4 0.55</size></box></geometry></collision>
+        <visual name="north"><pose>0 5.05 0.28 0 0 0</pose><geometry><box><size>10.4 0.12 0.55</size></box></geometry><material><ambient>0.45 0.45 0.45 1</ambient><diffuse>0.45 0.45 0.45 1</diffuse></material></visual>
+        <visual name="south"><pose>0 -5.05 0.28 0 0 0</pose><geometry><box><size>10.4 0.12 0.55</size></box></geometry><material><ambient>0.45 0.45 0.45 1</ambient><diffuse>0.45 0.45 0.45 1</diffuse></material></visual>
+        <visual name="east"><pose>5.05 0 0.28 0 0 0</pose><geometry><box><size>0.12 10.4 0.55</size></box></geometry><material><ambient>0.45 0.45 0.45 1</ambient><diffuse>0.45 0.45 0.45 1</diffuse></material></visual>
+        <visual name="west"><pose>-5.05 0 0.28 0 0 0</pose><geometry><box><size>0.12 10.4 0.55</size></box></geometry><material><ambient>0.45 0.45 0.45 1</ambient><diffuse>0.45 0.45 0.45 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="people_area_1_board">
+      <static>true</static>
+      <pose>-1.45 1.75 0.65 0 0 0</pose>
+      <link name="panel">
+        <visual name="board"><geometry><box><size>2.0 0.08 1.25</size></box></geometry><material><ambient>0.92 0.92 0.86 1</ambient><diffuse>0.92 0.92 0.86 1</diffuse></material></visual>
+        <visual name="resident_1"><pose>-0.65 -0.06 -0.05 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>1.0</length></cylinder></geometry><material><ambient>0.0 0.7 0.8 1</ambient><diffuse>0.0 0.7 0.8 1</diffuse></material></visual>
+        <visual name="outsider"><pose>-0.25 -0.06 -0.05 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>1.0</length></cylinder></geometry><material><ambient>0.95 0.1 0.1 1</ambient><diffuse>0.95 0.1 0.1 1</diffuse></material></visual>
+        <visual name="resident_2"><pose>0.15 -0.06 -0.05 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>1.0</length></cylinder></geometry><material><ambient>0.1 0.35 0.95 1</ambient><diffuse>0.1 0.35 0.95 1</diffuse></material></visual>
+        <visual name="resident_3"><pose>0.55 -0.06 -0.05 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>1.0</length></cylinder></geometry><material><ambient>0.95 0.65 0.1 1</ambient><diffuse>0.95 0.65 0.1 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="people_area_2_board">
+      <static>true</static>
+      <pose>-1.75 -1.35 0.65 0 0 0</pose>
+      <link name="panel">
+        <visual name="board"><geometry><box><size>2.0 0.08 1.25</size></box></geometry><material><ambient>0.92 0.92 0.86 1</ambient><diffuse>0.92 0.92 0.86 1</diffuse></material></visual>
+        <visual name="resident_1"><pose>-0.55 -0.06 -0.05 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>1.0</length></cylinder></geometry><material><ambient>0.8 0.1 0.8 1</ambient><diffuse>0.8 0.1 0.8 1</diffuse></material></visual>
+        <visual name="resident_2"><pose>-0.15 -0.06 -0.05 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>1.0</length></cylinder></geometry><material><ambient>0.1 0.35 0.95 1</ambient><diffuse>0.1 0.35 0.95 1</diffuse></material></visual>
+        <visual name="resident_3"><pose>0.25 -0.06 -0.05 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>1.0</length></cylinder></geometry><material><ambient>0.05 0.05 0.05 1</ambient><diffuse>0.05 0.05 0.05 1</diffuse></material></visual>
+        <visual name="resident_4"><pose>0.65 -0.06 -0.05 0 0 0</pose><geometry><cylinder><radius>0.14</radius><length>1.0</length></cylinder></geometry><material><ambient>0.95 0.65 0.1 1</ambient><diffuse>0.95 0.65 0.1 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <model name="plate_board">
+      <static>true</static>
+      <pose>4.05 -2.2 0.65 0 0 -1.5708</pose>
+      <link name="panel">
+        <visual name="board"><geometry><box><size>1.5 0.08 1.1</size></box></geometry><material><ambient>0.86 0.86 0.86 1</ambient><diffuse>0.86 0.86 0.86 1</diffuse></material></visual>
+        <visual name="plate"><pose>0 -0.06 0.08 0 0 0</pose><geometry><box><size>0.9 0.04 0.24</size></box></geometry><material><ambient>0.05 0.20 0.90 1</ambient><diffuse>0.05 0.20 0.90 1</diffuse></material></visual>
+      </link>
+    </model>
+  </world>
+</sdf>

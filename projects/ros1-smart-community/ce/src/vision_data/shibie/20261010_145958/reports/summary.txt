@@ -1,0 +1,13 @@
+已完成巡检点：11/11
+去重车牌号数量：3
+1. 苏W·GT88V
+2. 鲁R·5B7D2
+3. 鲁R·K3M9Q
+车牌检测框累计：4
+人员检测累计：community 14；noncommunity 2
+point_1：信号灯=green，状态=green_passed，裁剪图=/home/ros1/ce/src/vision_data/shibie/20261010_145958/traffic_light_crops/point_1_20261010_150006_918151_crop.jpg
+point_7：信号灯=green，状态=green_passed，裁剪图=/home/ros1/ce/src/vision_data/shibie/20261010_145958/traffic_light_crops/point_7_20261010_150555_595322_crop.jpg
+point_8：鲁R·5B7D2
+point_9：苏W·GT88V
+point_10：鲁R·K3M9Q
+point_11：未识别到车牌文字

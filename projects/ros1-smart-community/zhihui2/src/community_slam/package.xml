@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<package format="2"><name>community_slam</name><version>0.1.0</version><description>Mapping and localization for the smart community.</description><maintainer email="maintainer@example.com">Smart Community</maintainer><license>MIT</license><buildtool_depend>catkin</buildtool_depend><depend>community_gazebo</depend><depend>amcl</depend><depend>gmapping</depend><depend>map_server</depend><depend>rospy</depend><depend>rviz</depend></package>

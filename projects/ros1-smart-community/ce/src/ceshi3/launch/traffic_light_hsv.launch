@@ -1,0 +1,23 @@
+<launch>
+  <arg name="image_topic" default="/camera/image_raw" />
+
+  <!-- Replace these four values after reading the camera image. -->
+  <arg name="x" default="0" />
+  <arg name="y" default="0" />
+  <arg name="w" default="0" />
+  <arg name="h" default="0" />
+
+  <node pkg="ceshi3" type="traffic_light_hsv_node.py"
+        name="traffic_light_hsv_node" output="screen">
+    <param name="image_topic" value="$(arg image_topic)" />
+    <param name="x" value="$(arg x)" type="int" />
+    <param name="y" value="$(arg y)" type="int" />
+    <param name="w" value="$(arg w)" type="int" />
+    <param name="h" value="$(arg h)" type="int" />
+    <param name="min_area_ratio" value="0.01" />
+    <param name="min_saturation" value="80" />
+    <param name="min_value" value="100" />
+    <param name="vote_size" value="5" />
+    <param name="save_debug" value="true" />
+  </node>
+</launch>

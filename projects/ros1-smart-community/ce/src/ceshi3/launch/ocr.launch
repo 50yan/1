@@ -1,0 +1,12 @@
+<launch>
+  <arg name="image_topic" default="/camera/image_raw" />
+  <node pkg="ceshi3" type="plate_ocr_ros.py" name="plate_ocr" output="screen">
+    <param name="image_topic" value="$(arg image_topic)" />
+    <param name="roi_x" value="0" />
+    <param name="roi_y" value="0" />
+    <param name="roi_w" value="0" />
+    <param name="roi_h" value="0" />
+    <param name="min_score" value="0.50" />
+    <param name="process_hz" value="2.0" />
+  </node>
+</launch>
