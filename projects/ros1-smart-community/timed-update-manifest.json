@@ -1,0 +1,40 @@
+{
+  "backup": "/home/ros1/ce/patrol_backups/before_timed_traffic_20261010_201448",
+  "restore_script": "/home/ros1/ce/patrol_backups/restore_green_confirm_20261010.sh",
+  "source_sha256": "5522fafb742bde999198bb3c2aa1a7e0caa96e3231dcf3c2e1b7c4eb003f4410",
+  "timer_clock": "wall_monotonic",
+  "forward_target_m": 2.0,
+  "files": [
+    {
+      "path": "ce/src/ceshi3/scripts/patrol_with_vision.py",
+      "bytes": 44278,
+      "sha256": "5522fafb742bde999198bb3c2aa1a7e0caa96e3231dcf3c2e1b7c4eb003f4410",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/package.xml",
+      "bytes": 3524,
+      "sha256": "70ca93d74c2fcc470a09144c82b46b9a1a40e74c0c3e356111dd8a21dbb609d9",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/patrol_backups/restore_green_confirm_20261010.sh",
+      "bytes": 524,
+      "sha256": "e170f61aa8950b523b6cff6fee00141f958aedac57505b12b4c362049df1b91e",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/patrol_backups/before_timed_traffic_20261010_201448/patrol_with_vision.py",
+      "bytes": 39882,
+      "sha256": "c474ae73ead4c14341a01171c293e7f894a0c17e6073fef2eb1e676e1315a456",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/patrol_backups/before_timed_traffic_20261010_201448/package.xml",
+      "bytes": 3487,
+      "sha256": "a336805c56b5a1e5cec098dfdec5d6f80ea6eecc83a9a4105db984e1bc68a540",
+      "mode": "100755"
+    }
+  ],
+  "archive_sha256": "16328be42ca093987cf5781d26916f020360dc173f5d64e5f6562ddd7d46387c"
+}

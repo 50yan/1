@@ -6,7 +6,7 @@
 
 Git 仓库提供源码、launch、地图、world、机器人描述、模型定义、配置和巡检文字报告。大体积文件（rosbag、ONNX、场景纹理、巡检原图、数据集、OCR 权重等）保存在 [完整备份 Release](https://github.com/50yan/1/releases/tag/ros1-project-20261010)。完整压缩包还包含各工作空间的 `build`、`devel` 及项目内历史备份。
 
-`manifest.json` 列出虚拟机原始目录中全部已备份文件、大小、SHA256、以及保存位置。`repository_and_snapshot` 表示源码树与压缩包都有；`snapshot` 表示从 Release 下载完整压缩包恢复。压缩包保持 `/home/ros1` 下的原始相对路径。
+`manifest.json` 对应完整快照中的文件、大小、SHA256 和保存位置。之后新增的计时改动、旧版恢复脚本和备份单独记录在 `timed-update-manifest.json`，并保存在 `ros1-project-timed-update.tar.gz`。仓库源码已更新到计时版。`repository_and_snapshot` 表示源码树与压缩包都有；`snapshot` 表示从 Release 下载完整压缩包恢复。压缩包保持 `/home/ros1` 下的原始相对路径。
 
 为避免提交与项目无关的登录资料和可再生成缓存，备份排除了 `.claude`、Python 字节码缓存等；完整排除清单在 manifest 中。未同步操作系统、ROS 安装、Python 虚拟环境和全局 ROS 日志。依赖版本记录在 `environment.json`。
 
@@ -25,7 +25,7 @@ Git 仓库提供源码、launch、地图、world、机器人描述、模型定�
 
 ## 恢复到 ROS 虚拟机
 
-从 Release 下载所有 `ros1-project-full.tar.gz.part001` 至 `part011` 分卷及 `SHA256SUMS` 到同一目录，然后在 Linux 执行：
+从 Release 下载所有 `ros1-project-full.tar.gz.part001` 至 `part011` 分卷及 `SHA256SUMS` 及 `ros1-project-timed-update.tar.gz` 到同一目录，然后在 Linux 执行：
 
 ```bash
 sha256sum --ignore-missing -c SHA256SUMS
@@ -33,6 +33,7 @@ cat ros1-project-full.tar.gz.part[0-9][0-9][0-9] > ros1-project-full.tar.gz
 sha256sum --ignore-missing -c SHA256SUMS
 mkdir -p ~/ros1_project_restore
 tar -xzf ros1-project-full.tar.gz -C ~/ros1_project_restore
+tar -xzf ros1-project-timed-update.tar.gz -C ~/ros1_project_restore
 ```
 
 先在临时目录查看文件，再将需要的目录恢复到 `/home/ros1` 对应位置。源码中有 `/home/ros1` 的绝对路径，因此建议沿用用户名及目录；换用户名时需调整 world 的材质路径、launch 和 Python 中的模型/结果路径。复制 Linux 文件时使用 `cp -a` 保留执行权限及链接。将新版本文件恢复到已运行的环境前应关闭对应节点。
@@ -58,7 +59,23 @@ roslaunch ceshi3 nav.launch
 roslaunch ceshi3 patrol_with_vision.launch
 ```
 
-巡检包含 11 个点：第 1、7 点判断红绿灯，第 2–6 点识别人物，第 8–11 点识别车牌。红灯、黄灯或无法确认时等待；持续取得新画面，连续确认绿灯后再前往下一点，无需 `1/y/yes` 输入。
+巡检包含 11 个点：第 1、7 点判断红绿灯，第 2–6 点识别人物，第 8–11 点识别车牌。当前按用户指定的计时方案执行，无需 `1/y/yes` 输入：
+
+- 首次识别为绿灯：直接导航到下一巡检点。
+- 首次识别为红灯：从识别时刻开始等 4 秒，然后向机器人当前朝向前方 2 米的目标点导航，到达后再去下一巡检点。
+- 首次识别为黄灯：等待第一次识别到红灯，从那个时刻开始等 5 秒，然后执行前方 2 米目标，完成后再去下一巡检点。
+- 未确认灯色：继续读取新画面；旧相机帧不会触发倒计时。
+
+4/5 秒使用现实经过的时间（`time.monotonic`），不随 Gazebo 运行速度换算。倒计时结束按该方案直接放行，不再等待新绿灯确认。前方 2 米是 map 中的目标位移，由 move_base 规划和避障；不代表必须严格直线行驶 2 米。
+
+可恢复之前“连续确认绿灯才放行”的版本。先关闭巡检终端，再执行：
+
+```bash
+bash /home/ros1/ce/patrol_backups/restore_green_confirm_20261010.sh
+roslaunch ceshi3 patrol_with_vision.launch
+```
+
+旧版代码与 package.xml 位于 `/home/ros1/ce/patrol_backups/before_timed_traffic_20261010_201448`。计时版已通过分支时长、前方目标坐标和执行顺序测试，以及 ROS 导入、catkin 编译检查；完整路线尚未实跑。
 
 第 1 点固定裁剪为 `image[66:190, 270:750]`，第 7 点为 `image[5:160, 325:900]`。当前相机为 1280×720，按横向红、黄、绿灯排列判断 HSV 颜色与亮度。
 
