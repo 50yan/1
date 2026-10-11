@@ -1,0 +1,68 @@
+{
+  "frames": 639,
+  "checked": 593,
+  "mismatched": 0,
+  "transitions": [
+    {
+      "stamp": 0.651,
+      "wall": 0.5241578180011857,
+      "state": "Red",
+      "expected": "Red",
+      "scores": {
+        "Red": 4173,
+        "Green": 20,
+        "Yellow": 2329
+      },
+      "boundary_distance": 0.651
+    },
+    {
+      "stamp": 10.474,
+      "wall": 10.402464333001262,
+      "state": "Green",
+      "expected": "Green",
+      "scores": {
+        "Red": 256,
+        "Green": 4435,
+        "Yellow": 1565
+      },
+      "boundary_distance": 0.4740000000000002
+    },
+    {
+      "stamp": 25.593,
+      "wall": 25.77228032700077,
+      "state": "Yellow",
+      "expected": "Yellow",
+      "scores": {
+        "Red": 256,
+        "Green": 20,
+        "Yellow": 3823
+      },
+      "boundary_distance": 0.593
+    },
+    {
+      "stamp": 30.043,
+      "wall": 30.224890396000774,
+      "state": "Red",
+      "expected": "Red",
+      "scores": {
+        "Red": 4173,
+        "Green": 20,
+        "Yellow": 2329
+      },
+      "boundary_distance": 0.04299999999999926
+    },
+    {
+      "stamp": 40.043,
+      "wall": 40.34287238100114,
+      "state": "Green",
+      "expected": "Green",
+      "scores": {
+        "Red": 256,
+        "Green": 4435,
+        "Yellow": 1565
+      },
+      "boundary_distance": 0.04299999999999926
+    }
+  ],
+  "first_mismatches": []
+}

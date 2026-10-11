@@ -1,0 +1,127 @@
+{
+  "backup": "/home/ros1/ce/patrol_backups/before_traffic_sync_20261011_125602",
+  "changes": {
+    "/home/ros1/ce/src/ceshi3/worlds/15.world": [
+      {
+        "line": 4,
+        "text": "<plugin name=\"traffic_light_sync\" filename=\"/home/ros1/ce/devel/lib/libceshi3_traffic_light_sync.so\">"
+      },
+      {
+        "line": 5,
+        "text": "<red_seconds>10</red_seconds>"
+      },
+      {
+        "line": 6,
+        "text": "<green_seconds>15</green_seconds>"
+      },
+      {
+        "line": 7,
+        "text": "<yellow_seconds>5</yellow_seconds>"
+      },
+      {
+        "line": 8,
+        "text": "<material_uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</material_uri>"
+      },
+      {
+        "line": 4729,
+        "text": "<uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>"
+      },
+      {
+        "line": 4730,
+        "text": "<name>Ceshi3Traffic/Red</name>"
+      },
+      {
+        "line": 4923,
+        "text": "<uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>"
+      },
+      {
+        "line": 4924,
+        "text": "<name>Ceshi3Traffic/Red</name>"
+      },
+      {
+        "line": 5117,
+        "text": "<uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>"
+      },
+      {
+        "line": 5118,
+        "text": "<name>Ceshi3Traffic/Red</name>"
+      },
+      {
+        "line": 5311,
+        "text": "<uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>"
+      },
+      {
+        "line": 5312,
+        "text": "<name>Ceshi3Traffic/Red</name>"
+      }
+    ],
+    "/home/ros1/ce/src/ceshi3/src/traffic_light_sync.cpp": [
+      {
+        "line": 14,
+        "text": "void Load(physics::WorldPtr world, sdf::ElementPtr sdf) override {"
+      },
+      {
+        "line": 39,
+        "text": "void Update() {"
+      },
+      {
+        "line": 40,
+        "text": "const double now = world_->SimTime().Double();"
+      },
+      {
+        "line": 76,
+        "text": "script->set_name(\"Ceshi3Traffic/\" + state);"
+      }
+    ],
+    "/home/ros1/ce/src/ceshi3/CMakeLists.txt": [
+      {
+        "line": 219,
+        "text": "find_package(gazebo REQUIRED)"
+      },
+      {
+        "line": 220,
+        "text": "add_library(ceshi3_traffic_light_sync SHARED src/traffic_light_sync.cpp)"
+      },
+      {
+        "line": 226,
+        "text": "install(DIRECTORY models/traffic_light_sync DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/models)"
+      }
+    ],
+    "/home/ros1/ce/src/ceshi3/package.xml": [
+      {
+        "line": 82,
+        "text": "<build_depend>gazebo_dev</build_depend>"
+      },
+      {
+        "line": 83,
+        "text": "<build_export_depend>gazebo_dev</build_export_depend>"
+      }
+    ],
+    "/home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material": [
+      {
+        "line": 1,
+        "text": "material Ceshi3Traffic/Red"
+      },
+      {
+        "line": 12,
+        "text": "texture red.png"
+      },
+      {
+        "line": 19,
+        "text": "material Ceshi3Traffic/Green"
+      },
+      {
+        "line": 30,
+        "text": "texture green.png"
+      },
+      {
+        "line": 37,
+        "text": "material Ceshi3Traffic/Yellow"
+      },
+      {
+        "line": 48,
+        "text": "texture yellow.png"
+      }
+    ]
+  }
+}

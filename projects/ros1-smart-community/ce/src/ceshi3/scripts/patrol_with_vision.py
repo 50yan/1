@@ -7,7 +7,6 @@ import datetime
 import gc
 import hashlib
 import json
-import math
 import os
 import subprocess
 import sys
@@ -25,7 +24,6 @@ import cv2
 import numpy as np
 import onnxruntime as ort
 import rospy
-import tf2_ros
 from actionlib_msgs.msg import GoalStatus
 from cv_bridge import CvBridge
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
@@ -45,8 +43,8 @@ PERSON_CLASSES = ["community", "noncommunity"]
 # Fixed camera-image ROIs supplied for the two traffic-light patrol points.
 # Coordinates use image[y1:y2, x1:x2]. The lamps are arranged horizontally.
 TRAFFIC_LIGHT_ROIS = {
-    "point_1": (270, 66, 750, 190),
-    "point_7": (325, 5, 900, 160),
+    "point_1": (320, 16, 880, 220),
+    "point_7": (285, 0, 950, 200),
 }
 TRAFFIC_LIGHT_COLORS = ("red", "yellow", "green")
 
@@ -109,7 +107,7 @@ def classify_traffic_light(roi):
     return best, scores
 
 PATROL_POINTS = [
-    {"name": "point_1", "task": "traffic_light", "x": 0.8852919340133667, "y": 1.626142978668213, "qz": 0.9994266662676273, "qw": 0.033857624742097754},
+    {"name": "point_1", "task": "traffic_light", "x": 0.8852919340133667, "y": 1.626142978668213, "qz": 1, "qw": 0},
     {"name": "point_2", "task": "person", "x": -0.8889723420, "y": 1.6374720335, "qz": -0.7090742879, "qw": 0.7051337846},
     {"name": "point_3", "task": "person", "x": -1.6633207798, "y": 1.05, "qz": -0.0168198201, "qw": 0.9998585368},
     {"name": "point_4", "task": "person", "x": -0.8967646241, "y": 0.61553966999, "qz": 0.7095989107, "qw": 0.7046058373},
@@ -324,9 +322,6 @@ class PatrolVision:
         self.camera_subscriber = rospy.Subscriber(
             self.image_topic, Image, self.camera_callback, queue_size=1, buff_size=2 ** 24
         )
-        self.tf_buffer = tf2_ros.Buffer()
-        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer)
-        self.robot_base_frame = rospy.get_param("~robot_base_frame", "base_link")
         rospy.loginfo("持续订阅相机话题: %s", self.image_topic)
 
     def load_model(self, task):
@@ -450,8 +445,8 @@ class PatrolVision:
             stamp = message.header.stamp.to_sec()
         return self.bridge.imgmsg_to_cv2(message, desired_encoding="bgr8"), stamp
 
-    def wait_for_traffic_release(self, point, initial_image, stem, row):
-        """Green releases immediately; initial red waits 4s; yellow then red waits 5s."""
+    def wait_for_green_light(self, point, initial_image, stem, row):
+        """Release this point only on sustained green in fresh camera frames."""
         if point["name"] not in TRAFFIC_LIGHT_ROIS:
             raise RuntimeError("未配置红绿灯裁剪范围: {}".format(point["name"]))
         x1, y1, x2, y2 = TRAFFIC_LIGHT_ROIS[point["name"]]
@@ -471,30 +466,16 @@ class PatrolVision:
         row["traffic_light_history"] = []
         wait_started = time.monotonic()
 
-        rospy.loginfo("%s 红绿灯裁剪图已保存: %s；启用红4秒/黄转红5秒计时方案", point["name"], crop_path)
+        rospy.loginfo("%s 红绿灯裁剪图已保存: %s；开始等待绿灯", point["name"], crop_path)
         image, camera_stamp = initial_image, row["camera_stamp"]
+        green_streak = 0
+        green_start_stamp = None
+        green_start_wall = None
         previous_stamp = None
-        branch = None
-        deadline = None
+        previous_wall = None
         last_state = None
         last_report = 0.0
         while not rospy.is_shutdown():
-            now = time.monotonic()
-            if deadline is not None:
-                remaining = max(0.0, deadline - now)
-                row["traffic_light_wait_seconds"] = round(now - wait_started, 2)
-                if remaining <= 0:
-                    row["traffic_light_release_reason"] = branch
-                    row["traffic_light_release_time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    row["status"] = "released_pending_forward"
-                    rospy.loginfo("%s 计时完成，开始向前移动2米；完成后导航至下一巡检点", point["name"])
-                    self.write_reports()
-                    return "forward_2m"
-                if now - last_report >= 1.0:
-                    rospy.loginfo("%s 红灯倒计时：剩余 %.1f 秒", point["name"], remaining)
-                    last_report = now
-                time.sleep(min(0.05, remaining))
-                continue
             if image.shape[1] < x2 or image.shape[0] < y2:
                 raise RuntimeError("{} 相机尺寸变化，裁剪范围超出画面，停止巡检".format(point["name"]))
             live_crop = image[y1:y2, x1:x2]
@@ -503,26 +484,21 @@ class PatrolVision:
             age = rospy.Time.now().to_sec() - camera_stamp
             if camera_stamp <= 0 or age < -0.1 or age > 2.0:
                 state = "unknown"
-            if branch is None:
-                if state == "green":
-                    branch = "green_immediate"
-                elif state == "red":
-                    branch = "initial_red_4_seconds"
-                    deadline = now + 4.0
-                    row["traffic_light_timer_seconds"] = 4.0
-                elif state == "yellow":
-                    branch = "yellow_waiting_for_red"
-            elif branch == "yellow_waiting_for_red" and state == "red":
-                branch = "yellow_then_red_5_seconds"
-                deadline = now + 5.0
-                row["traffic_light_timer_seconds"] = 5.0
-            row["traffic_light_branch"] = branch or "waiting_for_recognition"
-            if deadline is not None:
-                row["traffic_light_timer_start"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                row["traffic_light_timer_camera_stamp"] = camera_stamp
-                rospy.loginfo("%s 当前信号灯：红灯；%s；开始计时 %.0f 秒", point["name"],
-                              "从黄灯等待到第一次红灯" if branch == "yellow_then_red_5_seconds" else "首次识别到红灯",
-                              row["traffic_light_timer_seconds"])
+            # Duplicated stamps and long pauses never extend a green streak.
+            continuous = (previous_stamp is not None and
+                          0 < camera_stamp - previous_stamp <= 1.0 and
+                          now - previous_wall <= 1.0)
+            if state == "green":
+                if green_streak == 0 or not continuous:
+                    green_streak = 1
+                    green_start_stamp, green_start_wall = camera_stamp, now
+                else:
+                    green_streak += 1
+            else:
+                green_streak = 0
+                green_start_stamp, green_start_wall = None, None
+            confirmed = (green_streak >= 3 and camera_stamp - green_start_stamp >= 0.4 and
+                         now - green_start_wall >= 0.4) if state == "green" else False
             row["traffic_light_state"] = state
             row["traffic_light_scores"] = {key: round(value, 5) for key, value in scores.items()}
             row["traffic_light_camera_stamp"] = camera_stamp
@@ -531,13 +507,11 @@ class PatrolVision:
                 rospy.loginfo("%s 当前信号灯：%s；%s；HSV占比 R=%.3f Y=%.3f G=%.3f",
                               point["name"],
                               {"red": "红灯", "yellow": "黄灯", "green": "绿灯", "unknown": "未确认"}[state],
-                              "等待首次红灯再计时5秒" if branch == "yellow_waiting_for_red" else (
-                                  "绿灯立即放行" if branch == "green_immediate" else (
-                                      "按计时方案等待" if deadline is not None else "等待识别到有效灯色")),
+                              "正在连续确认绿灯" if state == "green" else "原地等待，不前往下一点",
                               scores["red"], scores["yellow"], scores["green"])
                 last_report = now
 
-            if state != last_state:
+            if state != last_state or confirmed:
                 transition_path = os.path.join(
                     self.traffic_crop_dir, "{}_{}_{}.jpg".format(
                         point["name"], state, datetime.datetime.now().strftime("%Y%m%d_%H%M%S_%f")))
@@ -554,53 +528,21 @@ class PatrolVision:
                     "wait_seconds": row["traffic_light_wait_seconds"], "image": transition_path})
                 self.write_reports()
                 last_state = state
-            if branch == "green_immediate":
+            if confirmed:
+                row["traffic_light_state"] = "green"
                 row["status"] = "green_passed"
-                row["traffic_light_release_reason"] = branch
                 row["traffic_light_pass_time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                rospy.loginfo("%s 识别为绿灯，立即前往下一个巡检点", point["name"])
+                rospy.loginfo("%s 确认绿灯，继续前往下一个巡检点", point["name"])
                 self.write_reports()
-                return "next_point"
-            if deadline is not None:
-                continue
-            previous_stamp = camera_stamp
-            time.sleep(0.1)
+                return "green"
+            previous_stamp, previous_wall = camera_stamp, now
+            time.sleep(0.2)
             if rospy.is_shutdown():
                 break
             with self.camera_condition:
                 sequence = self.camera_sequence
             image, camera_stamp = self.get_camera_frame(sequence, after_stamp=previous_stamp)
         return "shutdown"
-
-    def move_forward_two_meters(self, point, row):
-        """Navigate to a target 2m ahead of the current robot pose in map."""
-        if rospy.is_shutdown():
-            return False
-        transform = self.tf_buffer.lookup_transform(
-            "map", self.robot_base_frame, rospy.Time(0), rospy.Duration(5.0))
-        age = rospy.Time.now().to_sec() - transform.header.stamp.to_sec()
-        if age < -0.1 or age > 2.0:
-            raise RuntimeError("机器人map定位已过期，停止向前移动2米: age={:.2f}".format(age))
-        translation = transform.transform.translation
-        q = transform.transform.rotation
-        yaw = math.atan2(2.0 * (q.w * q.z + q.x * q.y),
-                         1.0 - 2.0 * (q.y * q.y + q.z * q.z))
-        target = {"name": point["name"] + "_forward_2m",
-                  "x": translation.x + 2.0 * math.cos(yaw),
-                  "y": translation.y + 2.0 * math.sin(yaw),
-                  "qz": math.sin(yaw / 2.0), "qw": math.cos(yaw / 2.0)}
-        row["traffic_light_forward_target"] = target
-        row["traffic_light_forward_distance_m"] = 2.0
-        rospy.loginfo("%s 向前移动2米：map目标 x=%.3f y=%.3f，由move_base执行", point["name"],
-                      target["x"], target["y"])
-        self.write_reports()
-        if not self.navigate_to(self.navigation_client, target, timeout_seconds=120.0):
-            return False
-        row["status"] = "timed_forward_passed"
-        row["traffic_light_forward_completed_time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        rospy.loginfo("%s 向前2米目标已到达，继续前往下一个巡检点", point["name"])
-        self.write_reports()
-        return True
 
     def process_point(self, point, index):
         rospy.loginfo("%s 已到达，等待 %.1f 秒后抓取新相机帧", point["name"], self.settle_seconds)
@@ -684,11 +626,8 @@ class PatrolVision:
             rospy.loginfo("%s YOLO红绿灯检测：%s；图片：%s", point["name"],
                           "、".join(detected_lights) if detected_lights else "未检测到红绿灯",
                           image_path)
-            row["status"] = "waiting_for_release"
-            release = self.wait_for_traffic_release(point, image, stem, row)
-            if release == "forward_2m":
-                if not self.move_forward_two_meters(point, row) and not rospy.is_shutdown():
-                    raise RuntimeError("向前2米步骤未完成，停止巡检")
+            row["status"] = "waiting_for_green"
+            self.wait_for_green_light(point, image, stem, row)
         elif task == "person":
             rospy.loginfo(
                 "%s 拍摄完成，识别结果：community：%d人，noncommunity：%d人；耗时 %.2f 秒；图片：%s",
@@ -712,7 +651,7 @@ class PatrolVision:
         unique_plates = unique_plate_numbers(self.rows)
         summary = {
             "run_directory": self.run_dir,
-            "completed_points": sum(row["status"] not in ("waiting_for_release", "released_pending_forward") for row in self.rows),
+            "completed_points": sum(row["status"] != "waiting_for_green" for row in self.rows),
             "community_observations_total": community_total,
             "noncommunity_observations_total": noncommunity_total,
             "license_plate_detections_total": plate_total,
@@ -731,9 +670,6 @@ class PatrolVision:
                    "traffic_light_state", "traffic_light_scores", "traffic_light_roi", "traffic_light_crop",
                    "traffic_light_latest_crop", "traffic_light_camera_stamp", "traffic_light_wait_seconds",
                    "traffic_light_pass_time",
-                   "traffic_light_branch", "traffic_light_timer_seconds", "traffic_light_timer_start",
-                   "traffic_light_release_reason", "traffic_light_release_time", "traffic_light_forward_target",
-                   "traffic_light_forward_distance_m", "traffic_light_forward_completed_time",
                    "image", "raw_image", "status", "ocr_status", "ocr_error"]
         with open(csv_path, "w", encoding="utf-8-sig", newline="") as output:
             writer = csv.DictWriter(output, fieldnames=columns)
@@ -755,11 +691,9 @@ class PatrolVision:
                 community_total, noncommunity_total))
             for row in self.rows:
                 if row["task"] == "traffic_light":
-                    output.write("{}：信号灯={}，状态={}，分支={}，计时={}秒，前进目标={}，裁剪图={}\n".format(
+                    output.write("{}：信号灯={}，状态={}，裁剪图={}\n".format(
                         row["point"], row.get("traffic_light_state", "unknown"),
-                        row["status"], row.get("traffic_light_branch", ""),
-                        row.get("traffic_light_timer_seconds", ""),
-                        row.get("traffic_light_forward_target", ""), row.get("traffic_light_crop", "")))
+                        row["status"], row.get("traffic_light_crop", "")))
             for row in self.rows:
                 if row["task"] == "plate":
                     output.write("{}：{}\n".format(row["point"],
@@ -769,9 +703,9 @@ class PatrolVision:
 
         rospy.loginfo("报告已更新: %s", json_path)
 
-    def navigate_to(self, client, point, timeout_seconds=1800.0):
-        # All attempts for this goal share the specified wall-clock budget.
-        deadline = time.monotonic() + timeout_seconds
+    def navigate_to(self, client, point):
+        # All attempts for this point share one 30-minute wall-clock budget.
+        deadline = time.monotonic() + 1800.0
         for attempt in range(self.navigation_retries + 1):
             goal_done = threading.Event()
             goal_state = {"state": None}
@@ -790,7 +724,7 @@ class PatrolVision:
                 return False
             if not goal_done.is_set():
                 client.cancel_goal()
-                raise RuntimeError("导航到 {} 超时（{}秒）".format(point["name"], timeout_seconds))
+                raise RuntimeError("导航到 {} 超时（30分钟）".format(point["name"]))
             state = goal_state["state"]
             if state == GoalStatus.SUCCEEDED:
                 return True
@@ -814,7 +748,6 @@ class PatrolVision:
 
     def run(self):
         client = actionlib.SimpleActionClient("move_base", MoveBaseAction)
-        self.navigation_client = client
         rospy.loginfo("Waiting for move_base action server...")
         if not client.wait_for_server(rospy.Duration(30.0)):
             raise RuntimeError("move_base action server 未启动")

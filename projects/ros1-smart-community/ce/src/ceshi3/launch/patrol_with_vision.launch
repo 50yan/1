@@ -6,6 +6,6 @@
     <param name="traffic_light_model" value="$(arg traffic_light_model)" />
     <param name="ocr_min_score" value="0.50" />
     <param name="ocr_worker_timeout" value="120.0" />
-    <rosparam param="plate_aliases">{"苏W·GT88V": "苏·GT88V"}</rosparam>
+    <rosparam param="plate_aliases">{"苏W·GT88V": "苏W·GT88V"}</rosparam>
   </node>
 </launch>

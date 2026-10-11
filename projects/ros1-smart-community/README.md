@@ -2,11 +2,35 @@
 
 此目录同步自 VMware 中的 ROS Noetic 项目。当前主要运行工作空间是 `/home/ros1/ce`，核心包是 `ceshi3`。本次同时保存了同一项目的历史工作空间 `zh1`、`zhihui1` 和 `zhihui2`，便于追溯。
 
+## 2026-10-11 最新更新
+
+当前源码直接读取自 `/home/ros1/ce/src/ceshi3`，覆盖 `robot.launch`、`nav.launch`、`patrol_with_vision.launch` 及其配置、地图、世界文件和视觉脚本。文件大小、执行权限和 SHA256 记录在 [本次同步清单](update-manifest-20261011.json)。
+
+- `robot.launch` 加载 `15.world`。新增 Gazebo 同步插件 `src/traffic_light_sync.cpp`，用一个仿真时钟驱动四个灯箱，Gazebo GUI 和相机使用同一组静态灯色材质。
+- 灯色周期：红灯 10、绿灯 15、黄灯 5 **仿真秒**。仿真暂停时灯色暂停；仿真速度低于实时，现实等待时间会相应增加。
+- 巡检恢复为连续确认绿灯才放行；红灯、黄灯继续等待。当前路线没有前进 2 米操作，也没有过灯过渡点。
+- 新增三张灯色纹理 `red.png`、`green.png`、`yellow.png`，与插件源码一同保存在 Git 仓库。
+
+[下载本次更新包](https://github.com/50yan/1/releases/tag/ros1-project-update-20261011)。这份更新包是源码及本次插件备份的增量包；首次恢复需要先取得下面的 2026-10-10 完整备份，以补齐外部场景纹理、ONNX 和 OCR 权重，再覆盖本次更新包。既有完整备份和计时包保留为历史版本。
+
+已有 `/home/ros1/ce` 环境时，先关闭仿真、导航和巡检节点，在下载目录执行：
+
+```bash
+sha256sum -c UPDATE_SHA256SUMS
+tar -xzf ros1-project-update-20261011.tar.gz -C /home/ros1
+source /opt/ros/noetic/setup.bash
+cd /home/ros1/ce
+catkin_make --pkg ceshi3 -j2 -l2
+source /home/ros1/ce/devel/setup.bash
+```
+
+插件运行时从 `/home/ros1/ce/devel/lib/libceshi3_traffic_light_sync.so` 加载，因此恢复源码后必须重新编译。每个启动终端都应加载 `/home/ros1/ce/devel/setup.bash`。
+
 ## 源码与完整备份
 
 Git 仓库提供源码、launch、地图、world、机器人描述、模型定义、配置和巡检文字报告。大体积文件（rosbag、ONNX、场景纹理、巡检原图、数据集、OCR 权重等）保存在 [完整备份 Release](https://github.com/50yan/1/releases/tag/ros1-project-20261010)。完整压缩包还包含各工作空间的 `build`、`devel` 及项目内历史备份。
 
-`manifest.json` 对应完整快照中的文件、大小、SHA256 和保存位置。之后新增的计时改动、旧版恢复脚本和备份单独记录在 `timed-update-manifest.json`，并保存在 `ros1-project-timed-update.tar.gz`。仓库源码已更新到计时版。`repository_and_snapshot` 表示源码树与压缩包都有；`snapshot` 表示从 Release 下载完整压缩包恢复。压缩包保持 `/home/ros1` 下的原始相对路径。
+`manifest.json` 对应完整快照中的文件、大小、SHA256 和保存位置。之后新增的计时改动、旧版恢复脚本和备份单独记录在 `timed-update-manifest.json`，并保存在 `ros1-project-timed-update.tar.gz`。该计时包是历史版本。当前仓库源码以 `update-manifest-20261011.json` 为准，使用连续确认绿灯放行和统一仿真时钟红绿灯。`repository_and_snapshot` 表示源码树与压缩包都有；`snapshot` 表示从 Release 下载完整压缩包恢复。压缩包保持 `/home/ros1` 下的原始相对路径。
 
 为避免提交与项目无关的登录资料和可再生成缓存，备份排除了 `.claude`、Python 字节码缓存等；完整排除清单在 manifest 中。未同步操作系统、ROS 安装、Python 虚拟环境和全局 ROS 日志。依赖版本记录在 `environment.json`。
 
@@ -25,7 +49,7 @@ Git 仓库提供源码、launch、地图、world、机器人描述、模型定�
 
 ## 恢复到 ROS 虚拟机
 
-从 Release 下载所有 `ros1-project-full.tar.gz.part001` 至 `part011` 分卷及 `SHA256SUMS` 及 `ros1-project-timed-update.tar.gz` 到同一目录，然后在 Linux 执行：
+从完整备份 Release 下载所有 `ros1-project-full.tar.gz.part001` 至 `part011` 分卷、`SHA256SUMS` 和历史 `ros1-project-timed-update.tar.gz`，再从 2026-10-11 更新 Release 下载 `ros1-project-update-20261011.tar.gz`、`update-manifest-20261011.json` 和 `UPDATE_SHA256SUMS` 到同一目录，然后在 Linux 执行：
 
 ```bash
 sha256sum --ignore-missing -c SHA256SUMS
@@ -34,6 +58,8 @@ sha256sum --ignore-missing -c SHA256SUMS
 mkdir -p ~/ros1_project_restore
 tar -xzf ros1-project-full.tar.gz -C ~/ros1_project_restore
 tar -xzf ros1-project-timed-update.tar.gz -C ~/ros1_project_restore
+sha256sum -c UPDATE_SHA256SUMS
+tar -xzf ros1-project-update-20261011.tar.gz -C ~/ros1_project_restore
 ```
 
 先在临时目录查看文件，再将需要的目录恢复到 `/home/ros1` 对应位置。源码中有 `/home/ros1` 的绝对路径，因此建议沿用用户名及目录；换用户名时需调整 world 的材质路径、launch 和 Python 中的模型/结果路径。复制 Linux 文件时使用 `cp -a` 保留执行权限及链接。将新版本文件恢复到已运行的环境前应关闭对应节点。
@@ -49,33 +75,18 @@ source /home/ros1/ce/devel/setup.bash
 
 ## 当前巡检
 
-启动前先检查 `ce/src/ceshi3/launch/robot.launch` 中的实际 world 配置。同步时虚拟机实际运行的是 `15.world`；本次同步没有修改场景选择。
-
-Gazebo、导航和巡检分别在三个终端启动：
+实际运行的是 `ce/src/ceshi3/worlds/15.world`。Gazebo、导航和巡检在三个独立终端依次启动：
 
 ```bash
+# 终端一
 roslaunch ceshi3 robot.launch
+# 终端二
 roslaunch ceshi3 nav.launch
+# 终端三
 roslaunch ceshi3 patrol_with_vision.launch
 ```
 
-巡检包含 11 个点：第 1、7 点判断红绿灯，第 2–6 点识别人物，第 8–11 点识别车牌。当前按用户指定的计时方案执行，无需 `1/y/yes` 输入：
-
-- 首次识别为绿灯：直接导航到下一巡检点。
-- 首次识别为红灯：从识别时刻开始等 4 秒，然后向机器人当前朝向前方 2 米的目标点导航，到达后再去下一巡检点。
-- 首次识别为黄灯：等待第一次识别到红灯，从那个时刻开始等 5 秒，然后执行前方 2 米目标，完成后再去下一巡检点。
-- 未确认灯色：继续读取新画面；旧相机帧不会触发倒计时。
-
-4/5 秒使用现实经过的时间（`time.monotonic`），不随 Gazebo 运行速度换算。倒计时结束按该方案直接放行，不再等待新绿灯确认。前方 2 米是 map 中的目标位移，由 move_base 规划和避障；不代表必须严格直线行驶 2 米。
-
-可恢复之前“连续确认绿灯才放行”的版本。先关闭巡检终端，再执行：
-
-```bash
-bash /home/ros1/ce/patrol_backups/restore_green_confirm_20261010.sh
-roslaunch ceshi3 patrol_with_vision.launch
-```
-
-旧版代码与 package.xml 位于 `/home/ros1/ce/patrol_backups/before_timed_traffic_20261010_201448`。计时版已通过分支时长、前方目标坐标和执行顺序测试，以及 ROS 导入、catkin 编译检查；完整路线尚未实跑。
+巡检包含 11 个点：第 1、7 点判断红绿灯，第 2–6 点识别人物，第 8–11 点识别车牌。红灯、黄灯原地等待；绿灯至少连续确认 3 帧，且相机时间和现实经过时间都达到 0.4 秒后，自动导航到下一巡检点。新相机帧会持续更新，无需输入 `1/y/yes`。本次源码没有原先的红灯 4 秒/黄转红 5 秒倒计时、前进 2 米目标和过灯过渡点。
 
 第 1 点固定裁剪为 `image[66:190, 270:750]`，第 7 点为 `image[5:160, 325:900]`。当前相机为 1280×720，按横向红、黄、绿灯排列判断 HSV 颜色与亮度。
 
@@ -87,4 +98,4 @@ roslaunch ceshi3 patrol_with_vision.launch
 
 结果保存在 `/home/ros1/ce/src/vision_data/shibie/<运行时间>/`，包括原图、检测图、红绿灯裁剪图和 JSON/CSV/TXT 报告。
 
-此次同步是文件备份，不代表重新运行完整巡检。上传前核对文件清单与哈希，红绿灯部署检查记录为编译通过、样例照片/纹理识别通过及 ROS 新相机帧检查通过。
+此次同步对所有导出的 Python 文件进行了语法检查，对 launch、xacro、world 和 package.xml 进行了 XML 检查。此前插件部署完成 catkin 编译，并采集独立场景 639 帧和完整场景 861 帧；避开切换瞬间，灯色与仿真时钟一致。验证记录位于 `ce/patrol_backups/before_traffic_sync_20261011_125602/`。同步时没有重新运行 11 点完整路线。

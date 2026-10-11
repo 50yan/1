@@ -1,0 +1,54 @@
+material Ceshi3Traffic/Red
+{
+    technique
+    {
+        pass
+        {
+            lighting off
+            ambient 1 1 1 1
+            diffuse 1 1 1 1
+            texture_unit
+            {
+                texture red.png
+                filtering anisotropic
+                max_anisotropy 8
+            }
+        }
+    }
+}
+material Ceshi3Traffic/Green
+{
+    technique
+    {
+        pass
+        {
+            lighting off
+            ambient 1 1 1 1
+            diffuse 1 1 1 1
+            texture_unit
+            {
+                texture green.png
+                filtering anisotropic
+                max_anisotropy 8
+            }
+        }
+    }
+}
+material Ceshi3Traffic/Yellow
+{
+    technique
+    {
+        pass
+        {
+            lighting off
+            ambient 1 1 1 1
+            diffuse 1 1 1 1
+            texture_unit
+            {
+                texture yellow.png
+                filtering anisotropic
+                max_anisotropy 8
+            }
+        }
+    }
+}

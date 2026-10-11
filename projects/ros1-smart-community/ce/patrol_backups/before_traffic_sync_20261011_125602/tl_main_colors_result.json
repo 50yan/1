@@ -1,0 +1,68 @@
+{
+  "frames": 861,
+  "checked": 782,
+  "mismatched": 0,
+  "transitions": [
+    {
+      "stamp": 3036.452,
+      "wall": 0.045139032999941264,
+      "state": "Red",
+      "expected": "Red",
+      "scores": {
+        "Red": 1250,
+        "Green": 2,
+        "Yellow": 613
+      },
+      "boundary_distance": 3.5479999999997744
+    },
+    {
+      "stamp": 3101.471,
+      "wall": 0.0751411540004483,
+      "state": "Green",
+      "expected": "Green",
+      "scores": {
+        "Red": 50,
+        "Green": 1331,
+        "Yellow": 472
+      },
+      "boundary_distance": 1.4710000000000036
+    },
+    {
+      "stamp": 3115.007,
+      "wall": 16.838856911999756,
+      "state": "Yellow",
+      "expected": "Yellow",
+      "scores": {
+        "Red": 51,
+        "Green": 1,
+        "Yellow": 1165
+      },
+      "boundary_distance": 0.007000000000061846
+    },
+    {
+      "stamp": 3120.005,
+      "wall": 23.14961149100054,
+      "state": "Red",
+      "expected": "Red",
+      "scores": {
+        "Red": 1275,
+        "Green": 1,
+        "Yellow": 605
+      },
+      "boundary_distance": 0.005000000000109139
+    },
+    {
+      "stamp": 3130.005,
+      "wall": 35.96342735899998,
+      "state": "Green",
+      "expected": "Green",
+      "scores": {
+        "Red": 54,
+        "Green": 1337,
+        "Yellow": 476
+      },
+      "boundary_distance": 0.005000000000109139
+    }
+  ],
+  "first_mismatches": []
+}

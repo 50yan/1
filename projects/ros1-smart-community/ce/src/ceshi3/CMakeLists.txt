@@ -214,3 +214,13 @@ catkin_install_python(PROGRAMS
   scripts/plate_ocr_recognize.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+
+# One simulation clock drives the traffic lights in both Gazebo renderers.
+find_package(gazebo REQUIRED)
+add_library(ceshi3_traffic_light_sync SHARED src/traffic_light_sync.cpp)
+target_include_directories(ceshi3_traffic_light_sync PRIVATE ${GAZEBO_INCLUDE_DIRS})
+target_link_directories(ceshi3_traffic_light_sync PRIVATE ${GAZEBO_LIBRARY_DIRS})
+target_link_libraries(ceshi3_traffic_light_sync ${GAZEBO_LIBRARIES})
+set_target_properties(ceshi3_traffic_light_sync PROPERTIES CXX_STANDARD 17)
+install(TARGETS ceshi3_traffic_light_sync LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION})
+install(DIRECTORY models/traffic_light_sync DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/models)

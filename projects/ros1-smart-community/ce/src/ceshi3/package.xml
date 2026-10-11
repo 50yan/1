@@ -79,5 +79,6 @@
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>std_srvs</exec_depend>
   <exec_depend>cv_bridge</exec_depend>
-  <exec_depend>tf2_ros</exec_depend>
+  <build_depend>gazebo_dev</build_depend>
+  <build_export_depend>gazebo_dev</build_export_depend>
 </package>

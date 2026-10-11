@@ -1,0 +1,265 @@
+{
+  "backup": "/home/ros1/ce/patrol_backups/before_traffic_sync_20261011_125602",
+  "changes": {
+    "/home/ros1/ce/src/ceshi3/worlds/15.world": [
+      {
+        "line": 4,
+        "text": "<plugin name=\"traffic_light_sync\" filename=\"/home/ros1/ce/devel/lib/libceshi3_traffic_light_sync.so\">"
+      },
+      {
+        "line": 5,
+        "text": "<red_seconds>10</red_seconds>"
+      },
+      {
+        "line": 6,
+        "text": "<green_seconds>15</green_seconds>"
+      },
+      {
+        "line": 7,
+        "text": "<yellow_seconds>5</yellow_seconds>"
+      },
+      {
+        "line": 8,
+        "text": "<material_uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</material_uri>"
+      },
+      {
+        "line": 4729,
+        "text": "<uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>"
+      },
+      {
+        "line": 4730,
+        "text": "<name>Ceshi3Traffic/Red</name>"
+      },
+      {
+        "line": 4923,
+        "text": "<uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>"
+      },
+      {
+        "line": 4924,
+        "text": "<name>Ceshi3Traffic/Red</name>"
+      },
+      {
+        "line": 5117,
+        "text": "<uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>"
+      },
+      {
+        "line": 5118,
+        "text": "<name>Ceshi3Traffic/Red</name>"
+      },
+      {
+        "line": 5311,
+        "text": "<uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>"
+      },
+      {
+        "line": 5312,
+        "text": "<name>Ceshi3Traffic/Red</name>"
+      }
+    ],
+    "/home/ros1/ce/src/ceshi3/src/traffic_light_sync.cpp": [
+      {
+        "line": 14,
+        "text": "void Load(physics::WorldPtr world, sdf::ElementPtr sdf) override {"
+      },
+      {
+        "line": 39,
+        "text": "void Update() {"
+      },
+      {
+        "line": 40,
+        "text": "const double now = world_->SimTime().Double();"
+      },
+      {
+        "line": 76,
+        "text": "script->set_name(\"Ceshi3Traffic/\" + state);"
+      }
+    ],
+    "/home/ros1/ce/src/ceshi3/CMakeLists.txt": [
+      {
+        "line": 219,
+        "text": "find_package(gazebo REQUIRED)"
+      },
+      {
+        "line": 220,
+        "text": "add_library(ceshi3_traffic_light_sync SHARED src/traffic_light_sync.cpp)"
+      },
+      {
+        "line": 226,
+        "text": "install(DIRECTORY models/traffic_light_sync DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/models)"
+      }
+    ],
+    "/home/ros1/ce/src/ceshi3/package.xml": [
+      {
+        "line": 82,
+        "text": "<build_depend>gazebo_dev</build_depend>"
+      },
+      {
+        "line": 83,
+        "text": "<build_export_depend>gazebo_dev</build_export_depend>"
+      }
+    ],
+    "/home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material": [
+      {
+        "line": 1,
+        "text": "material Ceshi3Traffic/Red"
+      },
+      {
+        "line": 12,
+        "text": "texture red.png"
+      },
+      {
+        "line": 19,
+        "text": "material Ceshi3Traffic/Green"
+      },
+      {
+        "line": 30,
+        "text": "texture green.png"
+      },
+      {
+        "line": 37,
+        "text": "material Ceshi3Traffic/Yellow"
+      },
+      {
+        "line": 48,
+        "text": "texture yellow.png"
+      }
+    ]
+  },
+  "verification": {
+    "isolated": {
+      "frames": 639,
+      "checked": 593,
+      "mismatched": 0,
+      "transitions": [
+        {
+          "stamp": 0.651,
+          "wall": 0.5241578180011857,
+          "state": "Red",
+          "expected": "Red",
+          "scores": {
+            "Red": 4173,
+            "Green": 20,
+            "Yellow": 2329
+          },
+          "boundary_distance": 0.651
+        },
+        {
+          "stamp": 10.474,
+          "wall": 10.402464333001262,
+          "state": "Green",
+          "expected": "Green",
+          "scores": {
+            "Red": 256,
+            "Green": 4435,
+            "Yellow": 1565
+          },
+          "boundary_distance": 0.4740000000000002
+        },
+        {
+          "stamp": 25.593,
+          "wall": 25.77228032700077,
+          "state": "Yellow",
+          "expected": "Yellow",
+          "scores": {
+            "Red": 256,
+            "Green": 20,
+            "Yellow": 3823
+          },
+          "boundary_distance": 0.593
+        },
+        {
+          "stamp": 30.043,
+          "wall": 30.224890396000774,
+          "state": "Red",
+          "expected": "Red",
+          "scores": {
+            "Red": 4173,
+            "Green": 20,
+            "Yellow": 2329
+          },
+          "boundary_distance": 0.04299999999999926
+        },
+        {
+          "stamp": 40.043,
+          "wall": 40.34287238100114,
+          "state": "Green",
+          "expected": "Green",
+          "scores": {
+            "Red": 256,
+            "Green": 4435,
+            "Yellow": 1565
+          },
+          "boundary_distance": 0.04299999999999926
+        }
+      ],
+      "first_mismatches": []
+    },
+    "full_scene": {
+      "frames": 861,
+      "checked": 782,
+      "mismatched": 0,
+      "transitions": [
+        {
+          "stamp": 3036.452,
+          "wall": 0.045139032999941264,
+          "state": "Red",
+          "expected": "Red",
+          "scores": {
+            "Red": 1250,
+            "Green": 2,
+            "Yellow": 613
+          },
+          "boundary_distance": 3.5479999999997744
+        },
+        {
+          "stamp": 3101.471,
+          "wall": 0.0751411540004483,
+          "state": "Green",
+          "expected": "Green",
+          "scores": {
+            "Red": 50,
+            "Green": 1331,
+            "Yellow": 472
+          },
+          "boundary_distance": 1.4710000000000036
+        },
+        {
+          "stamp": 3115.007,
+          "wall": 16.838856911999756,
+          "state": "Yellow",
+          "expected": "Yellow",
+          "scores": {
+            "Red": 51,
+            "Green": 1,
+            "Yellow": 1165
+          },
+          "boundary_distance": 0.007000000000061846
+        },
+        {
+          "stamp": 3120.005,
+          "wall": 23.14961149100054,
+          "state": "Red",
+          "expected": "Red",
+          "scores": {
+            "Red": 1275,
+            "Green": 1,
+            "Yellow": 605
+          },
+          "boundary_distance": 0.005000000000109139
+        },
+        {
+          "stamp": 3130.005,
+          "wall": 35.96342735899998,
+          "state": "Green",
+          "expected": "Green",
+          "scores": {
+            "Red": 54,
+            "Green": 1337,
+            "Yellow": 476
+          },
+          "boundary_distance": 0.005000000000109139
+        }
+      ],
+      "first_mismatches": []
+    }
+  }
+}

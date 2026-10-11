@@ -1,0 +1,375 @@
+{
+  "exported_at": "2026-10-11T13:59:01.736603+08:00",
+  "source_root": "/home/ros1",
+  "package": "/home/ros1/ce/src/ceshi3",
+  "files": [
+    {
+      "path": "ce/patrol_backups/before_traffic_sync_20261011_125602/15.world",
+      "bytes": 222729,
+      "sha256": "5cc3d8c3fa677bca34de23b7c9f6121b9b73a50db656748566dcfb53db271cbe",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/patrol_backups/before_traffic_sync_20261011_125602/CMakeLists.txt",
+      "bytes": 7366,
+      "sha256": "df056f03fbe8d21d5f55476997b56687d081665a6055aff1a8bf01356ff782f7",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/patrol_backups/before_traffic_sync_20261011_125602/deployment_and_verification.json",
+      "bytes": 6759,
+      "sha256": "ca946b1bebf48a6c55e8ef7b2830f0ff183a000c0523dba5c0c0dbe338955bba",
+      "mode": "100644"
+    },
+    {
+      "path": "ce/patrol_backups/before_traffic_sync_20261011_125602/package.xml",
+      "bytes": 3487,
+      "sha256": "a336805c56b5a1e5cec098dfdec5d6f80ea6eecc83a9a4105db984e1bc68a540",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/patrol_backups/before_traffic_sync_20261011_125602/restore.sh",
+      "bytes": 360,
+      "sha256": "697525cac8648baf878e29b7baaec64c0cb9ec9c68587e8896ced67c0f0fd49a",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/patrol_backups/before_traffic_sync_20261011_125602/tl_main_colors_result.json",
+      "bytes": 1401,
+      "sha256": "7e45c8ef5f01ae7ea3a65f914d74a11c5cd6e2488c717c7bb8533aa540165301",
+      "mode": "100644"
+    },
+    {
+      "path": "ce/patrol_backups/before_traffic_sync_20261011_125602/tl_sync_final_report.json",
+      "bytes": 3392,
+      "sha256": "6e97a841269f802a167291dd14b4705374062cb60085c52dfedd81e01e7d7848",
+      "mode": "100644"
+    },
+    {
+      "path": "ce/patrol_backups/before_traffic_sync_20261011_125602/tl_sync_test_result.json",
+      "bytes": 1368,
+      "sha256": "9648f8c605d60ac9c254511582eb116202bb16c7f8ee3739623880cf3eeef930",
+      "mode": "100644"
+    },
+    {
+      "path": "ce/patrol_backups/before_traffic_sync_20261011_125602/verify_tl_main.json",
+      "bytes": 186,
+      "sha256": "fc0fd18268eab7d79470c33afc1405fa885f084849f89520c12c58fbd4fbddcb",
+      "mode": "100644"
+    },
+    {
+      "path": "ce/patrol_backups/restore_green_confirm_20261010.sh",
+      "bytes": 524,
+      "sha256": "e170f61aa8950b523b6cff6fee00141f958aedac57505b12b4c362049df1b91e",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/CMakeLists.txt",
+      "bytes": 8054,
+      "sha256": "cd8f17b2462122d514b7ca5952c4c42d75e34da03ad2165173eae3b0854857a7",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/OCR_PATROL_USAGE.md",
+      "bytes": 3275,
+      "sha256": "04aa0198abd125bb3138cc2364100b1d3783de0d7171c59bddfd68e18002cd8e",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/config/gmapping.rviz",
+      "bytes": 7425,
+      "sha256": "a4bfdbf2cebb55bf4a07dc6103390fd61a6ea5f2dcd643145c77390572a4b335",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/config/nav.rviz",
+      "bytes": 10420,
+      "sha256": "07e15c94324b16155ecaf95912917de73b3e2194159d284575c7cc540057344f",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/amcl.launch",
+      "bytes": 1956,
+      "sha256": "66775f591051257735a29158e45fc15f76b36bcfd0a5c794fbc741bdea88a056",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/box.launch",
+      "bytes": 421,
+      "sha256": "f53a52db1507b31a796a1182fa7039a459bb756525fdbd8ee46822058152de0c",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/car.launch",
+      "bytes": 442,
+      "sha256": "ef81c328d15a0b50b23afc0eb760eaaeec9c4e824225baf4b33847395a4c2fc5",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/gmapping.launch",
+      "bytes": 1819,
+      "sha256": "0034c8b737bc46bdbf7513d1f5d9ae3789a1dc5aab34524ff19f3d1799887580",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/map_save.launch",
+      "bytes": 167,
+      "sha256": "45c4bfd90fcc4de3d4c8ce604496d5cb1fc24052857489d79999eb37546f8c3f",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/map_server.launch",
+      "bytes": 268,
+      "sha256": "9f286eab6d4e3a09007a695ef28e2ed07c1a502b2f697c7bbd0082c84cf8c0f2",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/nav.launch",
+      "bytes": 681,
+      "sha256": "c2fff63d642773a3291ce132b5f41e560df5398d1093ef5d8ad6cfd4750349d3",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/ocr.launch",
+      "bytes": 461,
+      "sha256": "054f2c5c142a772d477e7cde4b92b16a1d455d95c07cb061c8cb4476a7659bea",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/path.launch",
+      "bytes": 643,
+      "sha256": "b1c7da8881f6c0ee6ad07b3e514bf385b5137ae95d78a751fb93a65634722604",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/patrol_with_vision.launch",
+      "bytes": 598,
+      "sha256": "15a977034a7a2f4c510325ea1b63d607e9d6d50ce69449490e70278383d9effa",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/robot.launch",
+      "bytes": 559,
+      "sha256": "d7272d7d5e87691cfb9986493b7dac27a1ad829989805c682250f0141e0f82b3",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/traffic_light_hsv.launch",
+      "bytes": 879,
+      "sha256": "97bdad4daa201e82f24997be0ee6c53bec8c5e704c6393b6f575bdf976795371",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/launch/vision_test.launch",
+      "bytes": 751,
+      "sha256": "6fec1c874442ecbaf4bd3ed3539a0c7fbe3d0ce94c396b2742877de87a43c61b",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/map/nav.pgm",
+      "bytes": 3936310,
+      "sha256": "22fb020cb42d97d70b0853a18a231a94103f6716c57a5fd065cc869ec08e74d9",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/map/nav.yaml",
+      "bytes": 160,
+      "sha256": "962741915f65a409c68f176c1ff109ff26347741bd913c93d218ed897ecb03f7",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/models/traffic_light_sync/green.png",
+      "bytes": 5210140,
+      "sha256": "1b78c5edf26263ac83838acb03c82d18767c5fcd279b94ea1767f2caad1529a8",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/models/traffic_light_sync/red.png",
+      "bytes": 5363222,
+      "sha256": "2f568f5fae116149d87272c7427110f3e328e477539a666c9de4a15756fb463b",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/models/traffic_light_sync/traffic_light.material",
+      "bytes": 991,
+      "sha256": "5c17f7e00d7a7556b1dd1fa23bb2704fdb5108582741dd68c316d158165bd5ee",
+      "mode": "100644"
+    },
+    {
+      "path": "ce/src/ceshi3/models/traffic_light_sync/yellow.png",
+      "bytes": 5040854,
+      "sha256": "b36d6aa24b307aef836442837afb91c5b30c584fffb6521d1778ac50abe97a0f",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/package.xml",
+      "bytes": 3585,
+      "sha256": "74b9dbfb5ccb3b4a520235d4b1d4b6812bbe1779cf9f282f9177386f89c4914f",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/param/base_local_planner_params.yaml",
+      "bytes": 657,
+      "sha256": "01ea723db26bc5433cf490deb6d664cd76d568a5c9926e4796d40431baaac160",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/param/costmap_common_params.yaml",
+      "bytes": 1115,
+      "sha256": "aabe1be479e7e3555456ce779e4d822662b140a3959404ed899550dbfcc06789",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/param/global_costmap_params.yaml",
+      "bytes": 468,
+      "sha256": "ad171ac729c61fed215e7be58149faa4dfa0e9feb527f512c57ba41c6cef7f38",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/param/local_costmap_params.yaml",
+      "bytes": 670,
+      "sha256": "e22f85c149e217948bde7ebb2f29b7f808c0bbbe13f2b49cba747d4d489caeca",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/scripts/extract_bag_images.py",
+      "bytes": 3332,
+      "sha256": "9868aaf6fe8039dd3c852cdc696392d98afad0aac9c17f15d42fe7a9d62bdfdd",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/scripts/patrol.py",
+      "bytes": 3747,
+      "sha256": "82fce7b0f6e9f90f487fb369c525f20009d84d05e5796609bd090960aac32f48",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/scripts/patrol_with_vision.py",
+      "bytes": 39846,
+      "sha256": "c8bdea7212ea352885b2f45b4f055b821ba588ec258f2b9b8d101633dd7a2d04",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/scripts/plate_ocr_recognize.py",
+      "bytes": 2279,
+      "sha256": "fd1b67d8da005c891ad7f5387f6dd4528340cfb22f71bff91402cbcb7d08f97c",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/scripts/plate_ocr_ros.py",
+      "bytes": 4725,
+      "sha256": "db92e38b3179269412cb552f71677dadd1d211112d512156b857389266fcc9fd",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/scripts/traffic_light_hsv_node.py",
+      "bytes": 7359,
+      "sha256": "1181f0afee42f3f13600d6aaa934e146be821e35345236885caad76c45d2ac86",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/scripts/yolo_onnx_ros_test.py",
+      "bytes": 6966,
+      "sha256": "19ad53b46cf871076a0286d0c82661841aa183387c1cacbed3db176a780d51b5",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/src/traffic_light_sync.cpp",
+      "bytes": 3791,
+      "sha256": "cd407ef7c399f430693f10f14d75283bdcdb5a2d3296ce666b475c0200d9f68c",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/urdf/box.urdf",
+      "bytes": 822,
+      "sha256": "774ae06f01406636d9af7ab5e946bdbff3c2a2416187727ba94062b0c341363a",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/worlds/11.world",
+      "bytes": 187727,
+      "sha256": "c55459d2fc2ac773ebb82d9b327e902d0486459e231731be67add8e61de0920b",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/worlds/13.world",
+      "bytes": 220963,
+      "sha256": "2a4e2b9aaa637620dd5b19ff29d50009908f446348a1d3d27aa129414a7193de",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/worlds/14.world",
+      "bytes": 222790,
+      "sha256": "9baeb5ad0d5a57defc2958b6907ca557c807f2cfaabb874ba254c2eecef2fb01",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/worlds/15.world",
+      "bytes": 223491,
+      "sha256": "4ea6957a7a5184bd89af2d350ad380b9de94803456c6a5d7ffa215d51bab1e84",
+      "mode": "100644"
+    },
+    {
+      "path": "ce/src/ceshi3/worlds/16.world",
+      "bytes": 187932,
+      "sha256": "61897654e4e0628520e373e4da2b94dd58da29c2feb20db283911278d471e196",
+      "mode": "100644"
+    },
+    {
+      "path": "ce/src/ceshi3/xacro/1.xacro",
+      "bytes": 1039,
+      "sha256": "20479ab901539021786c26b2ee58dc321fc16ddfc9b5c0387deb296ed956aab8",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/xacro/base.xacro",
+      "bytes": 5279,
+      "sha256": "e81d968f1bfbbcae2cf194b5b31344b746371ae42981aba726bba7b70e72d220",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/xacro/base1.xacro",
+      "bytes": 2284,
+      "sha256": "6ff141839cf20969e68d93d5753d99b833a4c282ac580570ccfb676eea75413d",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/xacro/camera.xacro",
+      "bytes": 1777,
+      "sha256": "3d689ba666d5f48f76e2bcb13fe78c6b1edbdb92ce6a66c3373aca71f55e59e0",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/xacro/camera1.xacro",
+      "bytes": 1401,
+      "sha256": "5f9d2814bdf23186d19dde663612e1f1da9de2a0ac17cb60271c3d203df4516e",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/xacro/laser.xacro",
+      "bytes": 3199,
+      "sha256": "7ac2c4f1efe95d3b4d6def082f8f81e72308c7cc5da1951e28dba01d27949288",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/xacro/laser1.xacro",
+      "bytes": 954,
+      "sha256": "13d88454401b6815acc6a569b0ce4bb19b6eeb9153e83adb5c1f8ef763f15a4a",
+      "mode": "100755"
+    },
+    {
+      "path": "ce/src/ceshi3/xacro/robot.xacro",
+      "bytes": 473,
+      "sha256": "18f97d2efc8c023dcc33ff2c8d333992abeebfc639d6c3fcea0bb1d6ab8b1628",
+      "mode": "100755"
+    }
+  ],
+  "archive_sha256": "4ed550b13d0fa80bf12af10dd0c172377f3cb21cab0ef2b07b0d09bfb20d0c23",
+  "archive_bytes": 15642498,
+  "launch_files": {
+    "robot.launch": "<launch>\n\n    <!-- 将 Urdf 文件的内容加载到参数服务器 -->\n    <param name=\"robot_description\" command=\"xacro $(find ceshi3)/xacro/robot.xacro\" />\n    <!-- 启动 gazebo -->\n    <include file=\"$(find gazebo_ros)/launch/empty_world.launch\">\n        <arg name=\"world_name\" value=\"$(find ceshi3)/worlds/15.world\" />\n    </include>\n\n    <!-- 在 gazebo 中显示机器人模型 -->\n    <node pkg=\"gazebo_ros\" type=\"spawn_model\" name=\"model\"\n          args=\"-urdf -model mycar -param robot_description -x 1.649 -y 1.670 -z 0.25 -Y 3.113\" />\n</launch>\n",
+    "nav.launch": "<launch>\n     <include file=\"$(find ceshi3)/launch/map_server.launch\" />\n     <param name=\"robot_description\"\n       command=\"xacro $(find ceshi3)/xacro/robot.xacro\" />\n    <!-- 启动AMCL节点 -->\n    <include file=\"$(find ceshi3)/launch/amcl.launch\" />\n\n    <!-- 运行move_base节点 -->\n    <include file=\"$(find ceshi3)/launch/path.launch\" />\n    <!-- 运行rviz -->\n    <node pkg=\"rviz\" type=\"rviz\" name=\"rviz\" args=\"-d $(find ceshi3)/config/nav.rviz\"/>\n    <node pkg=\"joint_state_publisher\"\n      name=\"joint_state_publisher\"\n      type=\"joint_state_publisher\" />\n    <node pkg=\"robot_state_publisher\" name=\"robot_state_publisher\" type=\"robot_state_publisher\" />\n</launch>\n",
+    "patrol_with_vision.launch": "<launch>\n  <arg name=\"image_topic\" default=\"/camera/image_raw\" />\n  <arg name=\"traffic_light_model\" default=\"/home/ros1/桌面/best_ros2.onnx\" />\n  <node pkg=\"ceshi3\" type=\"patrol_with_vision.py\" name=\"ceshi3_patrol_with_vision\" output=\"screen\" required=\"true\">\n    <param name=\"image_topic\" value=\"$(arg image_topic)\" />\n    <param name=\"traffic_light_model\" value=\"$(arg traffic_light_model)\" />\n    <param name=\"ocr_min_score\" value=\"0.50\" />\n    <param name=\"ocr_worker_timeout\" value=\"120.0\" />\n    <rosparam param=\"plate_aliases\">{\"苏W·GT88V\": \"苏W·GT88V\"}</rosparam>\n  </node>\n</launch>\n"
+  },
+  "validation": "Python syntax and XML parsing passed; no ROS processes started during export"
+}

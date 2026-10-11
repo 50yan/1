@@ -1,5 +1,16 @@
 <sdf version='1.7'>
   <world name='default'>
+    <!-- One simulation clock for Gazebo GUI and camera traffic lights. -->
+    <plugin name="traffic_light_sync" filename="/home/ros1/ce/devel/lib/libceshi3_traffic_light_sync.so">
+      <red_seconds>10</red_seconds>
+      <green_seconds>15</green_seconds>
+      <yellow_seconds>5</yellow_seconds>
+      <material_uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</material_uri>
+      <visual>ryg3::link_1::visual</visual>
+      <visual>ryg3_1::link_1::visual</visual>
+      <visual>ryg3_0::link_1::visual</visual>
+      <visual>ryg::link_1::visual</visual>
+    </plugin>
     <light name='sun' type='directional'>
       <cast_shadows>1</cast_shadows>
       <pose>0 0 10 0 -0 0</pose>
@@ -4715,8 +4726,8 @@
           <material>
             <lighting>1</lighting>
             <script>
-              <uri>file:///home/ros1/model_editor_models/ryg3/ryg3.material</uri>
-              <name>ryg</name>
+              <uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>
+              <name>Ceshi3Traffic/Red</name>
             </script>
           </material>
           <transparency>0</transparency>
@@ -4909,8 +4920,8 @@
           <material>
             <lighting>1</lighting>
             <script>
-              <uri>file:///home/ros1/model_editor_models/ryg3/ryg3.material</uri>
-              <name>ryg</name>
+              <uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>
+              <name>Ceshi3Traffic/Red</name>
             </script>
           </material>
           <transparency>0</transparency>
@@ -5103,8 +5114,8 @@
           <material>
             <lighting>1</lighting>
             <script>
-              <uri>file:///home/ros1/model_editor_models/ryg3/ryg3.material</uri>
-              <name>ryg</name>
+              <uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>
+              <name>Ceshi3Traffic/Red</name>
             </script>
           </material>
           <transparency>0</transparency>
@@ -5297,8 +5308,8 @@
           <material>
             <lighting>1</lighting>
             <script>
-              <uri>file:///home/ros1/model_editor_models/ryg/ryg.material</uri>
-              <name>ryg</name>
+              <uri>file:///home/ros1/ce/src/ceshi3/models/traffic_light_sync/traffic_light.material</uri>
+              <name>Ceshi3Traffic/Red</name>
             </script>
           </material>
           <transparency>0</transparency>
